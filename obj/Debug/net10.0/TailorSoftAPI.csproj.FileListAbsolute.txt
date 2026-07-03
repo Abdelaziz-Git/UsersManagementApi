@@ -67,3 +67,4 @@ C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSoftAPI.ge
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\ref\TailorSoftAPI.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\Scalar.AspNetCore.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\BCrypt-Net-Next.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSoftAPI.sourcelink.json

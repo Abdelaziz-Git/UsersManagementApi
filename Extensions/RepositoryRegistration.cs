@@ -12,6 +12,7 @@ public static class RepositoryRegistration
         services.AddScoped<IUserRolesRepository, UserRolesRepository>();
         services.AddScoped<IRolePermissionsRepository, RolePermissionsRepository>();
         services.AddScoped<ISubscriptionPlanRepository, SubscriptionPlanRepository>();
+        services.AddScoped<IUserSubscriptionRepository, UserSubscriptionRepository>();
 
         return services;
     }

@@ -13,6 +13,7 @@ public static class ServiceRegistration
         services.AddScoped<IRolePermissionsService, RolePermissionsService>();
         services.AddScoped<ISubscriptionPlanService, SubscriptionPlanService>();
         services.AddScoped<IUserSubscriptionService, UserSubscriptionService>();
+        services.AddScoped<IUserSessionsService, UserSessionsService>();
 
         return services;
     }

@@ -29,6 +29,11 @@ namespace TailorSoftAPI.Services
             if (dto.Amount < 0)
                 return ResultDto<Guid>.Failure("Amount cannot be negative");
 
+            if (dto.SubscriptionStatus is not ("Trial" or "Active" or "Expired" or "Cancelled" or "PastDue"))
+            {
+                return ResultDto<Guid>.Failure("Invalid subscription status. Allowed values are: Trial, Active, Expired, Cancelled, PastDue");
+            }
+
             var guid = await _repository.CreateAsync(dto);
             if (guid is null || guid == Guid.Empty)
                 return ResultDto<Guid>.Failure("Failed to create user subscription");
@@ -91,6 +96,10 @@ namespace TailorSoftAPI.Services
 
             if (dto.Amount is not null && dto.Amount < 0)
                 return ResultDto<bool>.Failure("Amount cannot be negative");
+            if (dto.SubscriptionStatus is not null && dto.SubscriptionStatus is not ("Trial" or "Active" or "Expired" or "Cancelled" or "PastDue"))
+            {
+                return ResultDto<bool>.Failure("Invalid subscription status. Allowed values are: Trial, Active, Expired, Cancelled, PastDue");
+            }
 
             var result = await _repository.UpdateAsync(subscriptionId, dto);
             if (result)
@@ -109,6 +118,13 @@ namespace TailorSoftAPI.Services
 
             if (dto.NextBillingDate == default)
                 return ResultDto<bool>.Failure("NextBillingDate is required to activate a subscription");
+            var subscription = await _repository.GetByIdAsync(subscriptionId);
+            if(subscription == null)
+                return ResultDto<bool>.Failure("Subscription with ID:" + subscriptionId + " not found");
+            if (subscription.SubscriptionStatus == "Active")
+                return ResultDto<bool>.Failure("Subscription is already active");
+            if(subscription.SubscriptionStatus == "Cancelled")
+                return ResultDto<bool>.Failure("Cannot activate a cancelled subscription");
 
             var result = await _repository.ActivateAsync(subscriptionId, dto);
             if (result)

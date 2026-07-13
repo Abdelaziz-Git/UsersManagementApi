@@ -27,10 +27,6 @@ namespace TailorSoftAPI.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        // ─────────────────────────────────────────────────────────────
-        //  CRUD
-        // ─────────────────────────────────────────────────────────────
-
         /// <summary>
         /// Creates a new user subscription
         /// </summary>
@@ -180,9 +176,7 @@ namespace TailorSoftAPI.Controllers
                 return Problem(detail: result.Error, statusCode: StatusCodes.Status404NotFound);
         }
 
-        // ─────────────────────────────────────────────────────────────
-        //  Lifecycle actions
-        // ─────────────────────────────────────────────────────────────
+        
 
         /// <summary>
         /// Activates a subscription (moves Trial / Expired / PastDue → Active)
@@ -193,7 +187,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Subscription activated successfully</response>
         /// <response code="400">Subscription is not eligible for activation</response>
         /// <response code="500">Internal server error</response>
-        [HttpPost("{subscriptionId:guid}/activate")]
+        [HttpPut("{subscriptionId:guid}/activate")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -214,7 +208,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Subscription cancelled successfully</response>
         /// <response code="400">Subscription is already cancelled</response>
         /// <response code="500">Internal server error</response>
-        [HttpPost("{subscriptionId:guid}/cancel")]
+        [HttpPut("{subscriptionId:guid}/cancel")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -236,7 +230,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Plan changed successfully</response>
         /// <response code="400">Invalid request or subscription is cancelled</response>
         /// <response code="500">Internal server error</response>
-        [HttpPost("{subscriptionId:guid}/change-plan")]
+        [HttpPut("{subscriptionId:guid}/change-plan")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -258,7 +252,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Subscription renewed successfully</response>
         /// <response code="400">Invalid request data</response>
         /// <response code="500">Internal server error</response>
-        [HttpPost("{subscriptionId:guid}/renew")]
+        [HttpPut("{subscriptionId:guid}/renew")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -301,7 +295,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Subscription marked as expired</response>
         /// <response code="400">Subscription is not eligible to be marked expired</response>
         /// <response code="500">Internal server error</response>
-        [HttpPost("{subscriptionId:guid}/mark-expired")]
+        [HttpPut("{subscriptionId:guid}/mark-expired")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -322,7 +316,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Subscription marked as past due</response>
         /// <response code="400">Subscription must be in Active status</response>
         /// <response code="500">Internal server error</response>
-        [HttpPost("{subscriptionId:guid}/mark-past-due")]
+        [HttpPut("{subscriptionId:guid}/mark-past-due")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -335,9 +329,6 @@ namespace TailorSoftAPI.Controllers
                 return Problem(detail: result.Error, statusCode: StatusCodes.Status400BadRequest);
         }
 
-        // ─────────────────────────────────────────────────────────────
-        //  Query / admin endpoints
-        // ─────────────────────────────────────────────────────────────
 
         /// <summary>
         /// Checks whether a user has an active or trial subscription

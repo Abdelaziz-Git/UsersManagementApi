@@ -14,6 +14,7 @@ public static class ServiceRegistration
         services.AddScoped<ISubscriptionPlanService, SubscriptionPlanService>();
         services.AddScoped<IUserSubscriptionService, UserSubscriptionService>();
         services.AddScoped<IUserSessionsService, UserSessionsService>();
+        services.AddScoped<IAuthService, AuthService>();
 
         return services;
     }

@@ -28,6 +28,51 @@ namespace TailorSoftAPI.Controllers
         }
 
         /// <summary>
+        /// Deletes a permission
+        /// </summary>
+        /// <param name="permissionId">The permission ID</param>
+        /// <returns>No content if successful</returns>
+        /// <response code="204">Permission deleted successfully</response>
+        /// <response code="404">Permission not found</response>
+        /// <response code="500">Internal server error</response>
+        [HttpDelete("{permissionId:guid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> Delete(Guid permissionId)
+        {
+            var result = await _permissionService.DeleteAsync(permissionId);
+            if (result.IsSuccess)
+                return NoContent();
+            else
+                return Problem(detail: result.Error, statusCode: StatusCodes.Status400BadRequest);
+        }
+
+        /// <summary>
+        /// Updates an existing permission
+        /// </summary>
+        /// <param name="permissionId">The permission ID</param>
+        /// <param name="dto">The updated permission data</param>
+        /// <returns>No content if successful</returns>
+        /// <response code="204">Permission updated successfully</response>
+        /// <response code="400">Invalid request data</response>
+        /// <response code="500">Internal server error</response>
+        [HttpPut("{permissionId:guid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> Update(Guid permissionId, [FromBody] UpdatePermissionDto dto)
+        {
+            var result = await _permissionService.UpdateAsync(permissionId, dto);
+            if (result.IsSuccess)
+                return NoContent();
+            else
+                return Problem(detail: result.Error, statusCode: StatusCodes.Status400BadRequest);
+        }
+
+        
+
+        /// <summary>
         /// Creates a new permission
         /// </summary>
         /// <param name="dto">The permission data to create</param>
@@ -90,47 +135,5 @@ namespace TailorSoftAPI.Controllers
                 return Problem(detail: result.Error, statusCode: StatusCodes.Status404NotFound);
         }
 
-        /// <summary>
-        /// Updates an existing permission
-        /// </summary>
-        /// <param name="permissionId">The permission ID</param>
-        /// <param name="dto">The updated permission data</param>
-        /// <returns>No content if successful</returns>
-        /// <response code="204">Permission updated successfully</response>
-        /// <response code="400">Invalid request data</response>
-        /// <response code="500">Internal server error</response>
-        [HttpPut("{permissionId:guid}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Update(Guid permissionId, [FromBody] UpdatePermissionDto dto)
-        {
-            var result = await _permissionService.UpdateAsync(permissionId, dto);
-            if (result.IsSuccess)
-                return NoContent();
-            else
-                return Problem(detail: result.Error, statusCode: StatusCodes.Status400BadRequest);
-        }
-
-        /// <summary>
-        /// Deletes a permission
-        /// </summary>
-        /// <param name="permissionId">The permission ID</param>
-        /// <returns>No content if successful</returns>
-        /// <response code="204">Permission deleted successfully</response>
-        /// <response code="404">Permission not found</response>
-        /// <response code="500">Internal server error</response>
-        [HttpDelete("{permissionId:guid}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Delete(Guid permissionId)
-        {
-            var result = await _permissionService.DeleteAsync(permissionId);
-            if (result.IsSuccess)
-                return NoContent();
-            else
-                return Problem(detail: result.Error, statusCode: StatusCodes.Status400BadRequest);
-        }
     }
 }

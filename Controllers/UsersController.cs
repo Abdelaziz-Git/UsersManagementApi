@@ -147,7 +147,7 @@ namespace TailorSoftAPI.Controllers
         [ProducesResponseType(typeof(ErrorMessageResponseDto), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateLastLogin(Guid userId)
         {
-           var result = await _userService.UpdateLastLogin(userId);
+           var result = await _userService.UpdateLastLoginAsync(userId);
             if (result.IsSuccess)
                 return NoContent();
             else

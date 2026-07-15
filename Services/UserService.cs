@@ -105,7 +105,7 @@ namespace TailorSoftAPI.Services
                 return ResultDto<bool>.Failure("Failed to update user");
         }
 
-        public async Task<ResultDto<bool>> UpdateLastLogin(Guid userId)
+        public async Task<ResultDto<bool>> UpdateLastLoginAsync(Guid userId)
         {
             if(userId == Guid.Empty)
                 return ResultDto<bool>.Failure("User ID cannot be empty");

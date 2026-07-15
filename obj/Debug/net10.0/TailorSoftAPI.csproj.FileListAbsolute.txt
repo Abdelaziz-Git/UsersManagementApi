@@ -6,6 +6,7 @@ C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSoftAPI.As
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSoftAPI.csproj.CoreCompileInputs.cache
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSoftAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSoftAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSoftAPI.sourcelink.json
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\appsettings.Development.json
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\appsettings.json
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\TailorSoftAPI.staticwebassets.endpoints.json
@@ -14,6 +15,7 @@ C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\TailorSoftAPI.de
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\TailorSoftAPI.runtimeconfig.json
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\TailorSoftAPI.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\TailorSoftAPI.pdb
+C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\BCrypt-Net-Next.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\Dapper.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
@@ -28,6 +30,7 @@ C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\Microsoft.Identi
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\Microsoft.OpenApi.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\Scalar.AspNetCore.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
@@ -65,6 +68,3 @@ C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\refint\TailorSof
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSoftAPI.pdb
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSoftAPI.genruntimeconfig.cache
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\ref\TailorSoftAPI.dll
-C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\Scalar.AspNetCore.dll
-C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\bin\Debug\net10.0\BCrypt-Net-Next.dll
-C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSoftAPI.sourcelink.json

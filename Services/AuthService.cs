@@ -2,10 +2,10 @@
 using TailorSoftAPI.DTOs.Common;
 using TailorSoftAPI.DTOs.UserSessions;
 using TailorSoftAPI.Interfaces.Services;
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.IdentityModel.JsonWebTokens;
 
 namespace TailorSoftAPI.Services
 {
@@ -313,6 +313,7 @@ namespace TailorSoftAPI.Services
         /// </summary>
         private string GenerateAccessToken(Guid userId, List<string> roles)
         {
+            // Read JWT settings from configuration
             var secretKey = _configuration["Jwt:SecretKey"];
             var issuer = _configuration["Jwt:Issuer"];
             var audience = _configuration["Jwt:Audience"];
@@ -327,23 +328,32 @@ namespace TailorSoftAPI.Services
             if (string.IsNullOrEmpty(secretKey))
                 throw new InvalidOperationException("JWT SecretKey is not configured");
 
+            // Create signing credentials
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
+
+            // Create claims for the token
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
                 new Claim(ClaimTypes.Role, string.Join(",", roles))
             };
 
-            var token = new JwtSecurityToken(
-                issuer: issuer,
-                audience: audience,
-                claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(expirationMinutes),
-                signingCredentials: creds);
+            // Create the token descriptor
+            var descriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.UtcNow.AddMinutes(expirationMinutes),
+                SigningCredentials = creds,
+                Issuer = issuer,
+                Audience = audience
+            };
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            // Create the token using JsonWebTokenHandler
+            var handler = new JsonWebTokenHandler();
+            return handler.CreateToken(descriptor);
+
         }
 
         /// <summary>

@@ -3,7 +3,7 @@ using TailorSoftAPI.Repositories;
 
 public static class RepositoryRegistration
 {
-    public static IServiceCollection AddRepositories(this IServiceCollection services)
+    public static IServiceCollection AddApplicationRepositories(this IServiceCollection services)
     {
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IUserCredentialRepository, UserCredentialRepository>();

@@ -3,7 +3,7 @@ using TailorSoftAPI.Services;
 
 public static class ServiceRegistration
 {
-    public static IServiceCollection AddServices(this IServiceCollection services)
+    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IUserCredentialService, UserCredentialService>();

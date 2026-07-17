@@ -1,8 +1,8 @@
-﻿namespace TailorSoftAPI.Extensions
+﻿namespace TailorSoftAPI.Extensions.Services.Registrations
 {
     public static class CorsPolicyRegistration
     {
-        public static IServiceCollection AddCorsPolicies(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddApplicationCorsPolicies(this IServiceCollection services, IConfiguration configuration)
         {
 
             var allowedOrigins = configuration.GetSection("Cors:AllowedOrigins").Get<string[]>()

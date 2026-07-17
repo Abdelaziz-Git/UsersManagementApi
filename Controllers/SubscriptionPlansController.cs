@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TailorSoftAPI.DTOs.Common;
 using TailorSoftAPI.DTOs.SubscriptionPlans;
 using TailorSoftAPI.Interfaces.Services;
@@ -8,6 +9,7 @@ namespace TailorSoftAPI.Controllers
     /// <summary>
     /// API Controller for managing subscription plans
     /// </summary>
+    [Authorize]
     [ApiController]
     [Route("api/subscription-plans")]
     [Produces("application/json")]

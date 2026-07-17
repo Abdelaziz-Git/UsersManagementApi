@@ -1,29 +1,13 @@
-using Scalar.AspNetCore;
-using TailorSoftAPI.Extensions;
+using TailorSoftAPI.Extensions.Services.Collections;
+using TailorSoftAPI.Extensions.Middleware;
+using TailorSoftAPI.Extensions.Endpoints;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApplicationServices(builder.Configuration);
 
-// Add services to the container.
-builder.Services.AddControllers();
-builder.Services.AddOpenApi();
-
 var app = builder.Build();
-
-app.UseHttpsRedirection();
-app.UseCors("AllowSpecificOrigins");
-
-app.UseExceptionHandler();
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.MapScalarApiReference();
-}
-
-
-app.UseAuthorization();
-
-app.MapControllers();
-
+app.UseMiddleware();
+app.UseEndpoints();
 await app.RunAsync();

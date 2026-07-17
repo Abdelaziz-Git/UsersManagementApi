@@ -2,7 +2,7 @@
 
 public static class DatabaseRegistration
 {
-    public static IServiceCollection AddDatabase(this IServiceCollection services)
+    public static IServiceCollection AddApplicationDatabase(this IServiceCollection services)
     {
         services.AddScoped<DapperContext>();
 

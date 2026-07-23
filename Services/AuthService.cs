@@ -2,10 +2,6 @@
 using TailorSoftAPI.DTOs.Common;
 using TailorSoftAPI.DTOs.UserSessions;
 using TailorSoftAPI.Interfaces.Services;
-using System.Security.Claims;
-using System.Text;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.IdentityModel.JsonWebTokens;
 
 namespace TailorSoftAPI.Services
 {
@@ -15,7 +11,7 @@ namespace TailorSoftAPI.Services
         private readonly IUserCredentialService _userCredentialService;
         private readonly IUserSessionsService _userSessionsService;
         private readonly IUserRolesService _userRolesService;
-        private readonly IConfiguration _configuration;
+        private readonly ITokenGenerationService _tokenGenerationService;
         private readonly ILogger<AuthService> _logger;
 
         public AuthService(
@@ -23,14 +19,14 @@ namespace TailorSoftAPI.Services
             IUserCredentialService credentialService,
             IUserSessionsService sessionsService,
             IUserRolesService userRolesService,
-            IConfiguration configuration,
+            ITokenGenerationService tokenGenerationService,
             ILogger<AuthService> logger)
         {
             _userService = userService ?? throw new ArgumentNullException(nameof(userService));
             _userCredentialService = credentialService ?? throw new ArgumentNullException(nameof(credentialService));
             _userSessionsService = sessionsService ?? throw new ArgumentNullException(nameof(sessionsService));
             _userRolesService = userRolesService ?? throw new ArgumentNullException(nameof(userRolesService));
-            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+            _tokenGenerationService = tokenGenerationService ?? throw new ArgumentNullException(nameof(tokenGenerationService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -126,8 +122,8 @@ namespace TailorSoftAPI.Services
                 : new List<string>();
 
             // Generate tokens
-            var accessToken = GenerateAccessToken(user.UserId, roles);
-            var refreshToken = GenerateRefreshToken();
+            var accessToken = await _tokenGenerationService.GenerateAccessToken(user.UserId, roles);
+            var refreshToken = await _tokenGenerationService.GenerateRefreshToken();
             var expiryDate = DateTime.UtcNow.AddDays(7);
 
             // Create user session
@@ -223,8 +219,8 @@ namespace TailorSoftAPI.Services
                 : new List<string>();
 
             // Generate new tokens
-            var newAccessToken = GenerateAccessToken(user.UserId, roles);
-            var newRefreshToken = GenerateRefreshToken();
+            var newAccessToken = await _tokenGenerationService.GenerateAccessToken(user.UserId, roles);
+            var newRefreshToken = await _tokenGenerationService.GenerateRefreshToken();
             var newExpiryDate = DateTime.UtcNow.AddDays(7);
 
             // Rotate tokens in session
@@ -306,69 +302,6 @@ namespace TailorSoftAPI.Services
             return ResultDto<bool>.Success(true);
         }
 
-        #region Private Helper Methods
-
-        /// <summary>
-        /// Generates a JWT access token for the user.
-        /// </summary>
-        private string GenerateAccessToken(Guid userId, List<string> roles)
-        {
-            // Read JWT settings from configuration
-            var secretKey = _configuration["Jwt:SecretKey"];
-            var issuer = _configuration["Jwt:Issuer"];
-            var audience = _configuration["Jwt:Audience"];
-            var expirationMinutesStr = _configuration["Jwt:ExpirationMinutes"];
-
-            int expirationMinutes = 15; // Default
-            if (!string.IsNullOrEmpty(expirationMinutesStr) && int.TryParse(expirationMinutesStr, out int minutes))
-            {
-                expirationMinutes = minutes;
-            }
-
-            if (string.IsNullOrEmpty(secretKey))
-                throw new InvalidOperationException("JWT SecretKey is not configured");
-
-            // Create signing credentials
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-
-            // Create claims for the token
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
-                new Claim(ClaimTypes.Role, string.Join(",", roles))
-            };
-
-            // Create the token descriptor
-            var descriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(expirationMinutes),
-                SigningCredentials = creds,
-                Issuer = issuer,
-                Audience = audience
-            };
-
-            // Create the token using JsonWebTokenHandler
-            var handler = new JsonWebTokenHandler();
-            return handler.CreateToken(descriptor);
-
-        }
-
-        /// <summary>
-        /// Generates a cryptographically secure refresh token.
-        /// </summary>
-        private string GenerateRefreshToken()
-        {
-            var randomNumber = new byte[32];
-            using (var rng = System.Security.Cryptography.RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(randomNumber);
-                return Convert.ToBase64String(randomNumber);
-            }
-        }
-
-        #endregion
+       
     }
 }

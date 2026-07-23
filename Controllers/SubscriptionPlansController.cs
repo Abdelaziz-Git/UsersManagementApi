@@ -9,10 +9,12 @@ namespace TailorSoftAPI.Controllers
     /// <summary>
     /// API Controller for managing subscription plans
     /// </summary>
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("api/subscription-plans")]
     [Produces("application/json")]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(typeof(Guid), StatusCodes.Status403Forbidden)]
     public class SubscriptionPlansController : ControllerBase
     {
         private readonly ISubscriptionPlanService _subscriptionPlanService;
@@ -100,6 +102,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">Subscription plans retrieved successfully</response>
         /// <response code="404">No subscription plans found</response>
         /// <response code="500">Internal server error</response>
+        [AllowAnonymous]
         [HttpGet]
         [ProducesResponseType(typeof(List<SubscriptionPlanResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]

@@ -150,6 +150,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Guid",
         "MediaTypes": [
           "application/json"
@@ -187,6 +201,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Void",
         "MediaTypes": [],
@@ -229,6 +257,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -264,6 +306,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "TailorSoftAPI.DTOs.Permissions.PermissionResponseDto",
         "MediaTypes": [
@@ -304,6 +360,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.Permissions.PermissionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
@@ -342,6 +412,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.RolePermissions.RolePermissionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
@@ -379,6 +463,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.RolePermissions.RolePermissionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
@@ -419,6 +517,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Guid",
         "MediaTypes": [
           "application/json"
@@ -457,6 +569,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Void",
         "MediaTypes": [],
@@ -499,6 +625,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -535,6 +675,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Guid",
         "MediaTypes": [
           "application/json"
@@ -566,6 +720,20 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.Roles.RoleResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
@@ -604,6 +772,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "TailorSoftAPI.DTOs.Roles.RoleResponseDto",
         "MediaTypes": [
@@ -649,6 +831,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -685,6 +881,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -720,6 +930,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "TailorSoftAPI.DTOs.Roles.RoleResponseDto",
         "MediaTypes": [
@@ -759,6 +983,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Guid",
         "MediaTypes": [
           "application/json"
@@ -797,6 +1035,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.SubscriptionPlans.SubscriptionPlanResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
@@ -834,6 +1086,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "TailorSoftAPI.DTOs.SubscriptionPlans.SubscriptionPlanResponseDto",
         "MediaTypes": [
@@ -879,6 +1145,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -914,6 +1194,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Void",
         "MediaTypes": [],
@@ -951,6 +1245,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "TailorSoftAPI.DTOs.SubscriptionPlans.SubscriptionPlanResponseDto",
         "MediaTypes": [
           "application/json"
@@ -982,6 +1290,20 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserRoles.UserRoleResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
@@ -1020,6 +1342,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "TailorSoftAPI.DTOs.UserRoles.UserRoleResponseDto",
         "MediaTypes": [
@@ -1060,6 +1396,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -1095,6 +1445,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Guid",
         "MediaTypes": [
@@ -1134,6 +1498,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserRoles.UserRoleResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
@@ -1172,6 +1550,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -1207,6 +1599,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserRoles.UserRoleResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
@@ -1246,6 +1652,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -1281,6 +1701,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Boolean",
         "MediaTypes": [
@@ -1320,6 +1754,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Guid",
         "MediaTypes": [
           "application/json"
@@ -1356,6 +1804,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSessions.UserSessionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
@@ -1386,6 +1848,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "TailorSoftAPI.DTOs.UserSessions.UserSessionResponseDto",
         "MediaTypes": [
@@ -1419,6 +1895,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -1447,6 +1937,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Int32",
         "MediaTypes": [
@@ -1478,6 +1982,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "TailorSoftAPI.DTOs.UserSessions.UserSessionResponseDto",
         "MediaTypes": [
@@ -1515,6 +2033,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSessions.UserSessionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
@@ -1540,6 +2072,20 @@
     "Parameters": [],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Int32",
         "MediaTypes": [
           "application/json"
@@ -1563,6 +2109,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Void",
         "MediaTypes": [],
@@ -1592,6 +2152,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Int32",
         "MediaTypes": [
@@ -1629,6 +2203,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Int32",
         "MediaTypes": [
           "application/json"
@@ -1660,6 +2248,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -1689,6 +2291,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "TailorSoftAPI.DTOs.UserSessions.RotateTokenResultDto",
         "MediaTypes": [
           "application/json"
@@ -1714,6 +2330,20 @@
     "Parameters": [],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSessions.SessionStatsDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
@@ -1737,6 +2367,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Boolean",
         "MediaTypes": [
@@ -1768,6 +2412,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Guid",
         "MediaTypes": [
@@ -1807,6 +2465,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.UserSubscriptionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
@@ -1844,6 +2516,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "TailorSoftAPI.DTOs.UserSubscriptions.UserSubscriptionResponseDto",
         "MediaTypes": [
@@ -1889,6 +2575,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -1925,6 +2625,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -1948,7 +2662,7 @@
   {
     "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
     "Method": "Activate",
-    "RelativePath": "api/user-subscriptions/{subscriptionId}/activate",
+    "RelativePath": "api/user-subscriptions/activate/{subscriptionId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -1965,6 +2679,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Void",
         "MediaTypes": [],
@@ -1989,7 +2717,7 @@
   {
     "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
     "Method": "ToggleAutoRenew",
-    "RelativePath": "api/user-subscriptions/{subscriptionId}/auto-renew",
+    "RelativePath": "api/user-subscriptions/auto-renew/{subscriptionId}",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
@@ -2007,195 +2735,19 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 204
-      },
-      {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
           "application/json"
         ],
-        "StatusCode": 400
+        "StatusCode": 401
       },
       {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 500
-      }
-    ]
-  },
-  {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
-    "Method": "Cancel",
-    "RelativePath": "api/user-subscriptions/{subscriptionId}/cancel",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "subscriptionId",
         "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 204
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
         "MediaTypes": [
           "application/json"
         ],
-        "StatusCode": 400
+        "StatusCode": 403
       },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 500
-      }
-    ]
-  },
-  {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
-    "Method": "ChangePlan",
-    "RelativePath": "api/user-subscriptions/{subscriptionId}/change-plan",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "subscriptionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserSubscriptions.ChangePlanDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 204
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 500
-      }
-    ]
-  },
-  {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
-    "Method": "MarkExpired",
-    "RelativePath": "api/user-subscriptions/{subscriptionId}/mark-expired",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "subscriptionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 204
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 500
-      }
-    ]
-  },
-  {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
-    "Method": "MarkPastDue",
-    "RelativePath": "api/user-subscriptions/{subscriptionId}/mark-past-due",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "subscriptionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 204
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 500
-      }
-    ]
-  },
-  {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
-    "Method": "Renew",
-    "RelativePath": "api/user-subscriptions/{subscriptionId}/renew",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "subscriptionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserSubscriptions.RenewUserSubscriptionDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
       {
         "Type": "System.Void",
         "MediaTypes": [],
@@ -2238,6 +2790,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.UserSubscriptionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
@@ -2276,6 +2842,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.UserSubscriptionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
@@ -2288,6 +2868,111 @@
           "application/json"
         ],
         "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "Method": "Cancel",
+    "RelativePath": "api/user-subscriptions/cancel/{subscriptionId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subscriptionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "Method": "ChangePlan",
+    "RelativePath": "api/user-subscriptions/change-plan/{subscriptionId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subscriptionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "TailorSoftAPI.DTOs.UserSubscriptions.ChangePlanDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 400
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -2313,6 +2998,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.DueBillingResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
@@ -2352,6 +3051,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.ExpiredSubscriptionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
@@ -2389,6 +3102,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.ExpiredTrialResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
@@ -2428,11 +3155,180 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Boolean",
         "MediaTypes": [
           "application/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "Method": "MarkExpired",
+    "RelativePath": "api/user-subscriptions/mark-expired/{subscriptionId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subscriptionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "Method": "MarkPastDue",
+    "RelativePath": "api/user-subscriptions/mark-past-due/{subscriptionId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subscriptionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "Method": "Renew",
+    "RelativePath": "api/user-subscriptions/renew/{subscriptionId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subscriptionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "TailorSoftAPI.DTOs.UserSubscriptions.RenewUserSubscriptionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -2459,6 +3355,20 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.SubscriptionStatResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
@@ -2498,6 +3408,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.UpcomingBillingResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
@@ -2536,6 +3460,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Guid",
         "MediaTypes": [
           "application/json"
@@ -2573,6 +3511,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "TailorSoftAPI.DTOs.UserCredentials.UserCredentialResponseDto",
         "MediaTypes": [
@@ -2618,6 +3570,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -2653,6 +3619,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Boolean",
         "MediaTypes": [
@@ -2697,6 +3677,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -2732,6 +3726,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Void",
         "MediaTypes": [],
@@ -2769,6 +3777,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Guid",
         "MediaTypes": [
           "application/json"
@@ -2781,6 +3803,68 @@
           "application/json"
         ],
         "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "TailorSoftAPI.Controllers.UsersController",
+    "Method": "GetAll",
+    "RelativePath": "api/Users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "SearchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
+        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.Users.UserResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 404
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -2806,6 +3890,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "TailorSoftAPI.DTOs.Users.UserResponseDto",
         "MediaTypes": [
@@ -2851,6 +3949,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -2887,6 +3999,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 204
@@ -2909,54 +4035,6 @@
   },
   {
     "ContainingType": "TailorSoftAPI.Controllers.UsersController",
-    "Method": "GetAll",
-    "RelativePath": "api/Users/all",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "PageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "PageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "SearchTerm",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.Users.UserResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 404
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 500
-      }
-    ]
-  },
-  {
-    "ContainingType": "TailorSoftAPI.Controllers.UsersController",
     "Method": "GetByEmail",
     "RelativePath": "api/Users/by-email/{email}",
     "HttpMethod": "GET",
@@ -2970,6 +4048,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "TailorSoftAPI.DTOs.Users.UserResponseDto",
         "MediaTypes": [
@@ -3009,6 +4101,20 @@
     ],
     "ReturnTypes": [
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
+      {
         "Type": "System.Boolean",
         "MediaTypes": [
           "application/json"
@@ -3046,6 +4152,20 @@
       }
     ],
     "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      },
       {
         "Type": "System.Void",
         "MediaTypes": [],

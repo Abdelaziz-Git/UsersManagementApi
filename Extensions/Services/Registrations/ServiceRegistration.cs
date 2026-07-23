@@ -15,6 +15,7 @@ public static class ServiceRegistration
         services.AddScoped<IUserSubscriptionService, UserSubscriptionService>();
         services.AddScoped<IUserSessionsService, UserSessionsService>();
         services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<ITokenGenerationService, JwtTokenGenerationService>();
 
         return services;
     }

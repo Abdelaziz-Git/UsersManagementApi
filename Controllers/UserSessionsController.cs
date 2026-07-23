@@ -1,7 +1,6 @@
 ﻿// Controllers/UserSessionsController.cs
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TailorSoftAPI.DTOs.Common;
 using TailorSoftAPI.DTOs.UserSessions;
 using TailorSoftAPI.Interfaces.Services;
 
@@ -10,10 +9,12 @@ namespace TailorSoftAPI.Controllers
     /// <summary>
     /// API Controller for managing user sessions (refresh tokens)
     /// </summary>
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     [ApiController]
     [Route("api/user-sessions")]
     [Produces("application/json")]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(typeof(Guid), StatusCodes.Status403Forbidden)]
     public class UserSessionsController : ControllerBase
     {
         private readonly IUserSessionsService _sessionsService;

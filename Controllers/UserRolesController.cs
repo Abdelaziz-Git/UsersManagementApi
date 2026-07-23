@@ -13,20 +13,22 @@ namespace TailorSoftAPI.Controllers
     [ApiController]
     [Route("api/user-roles")]
     [Produces("application/json")]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(typeof(Guid), StatusCodes.Status403Forbidden)]
     public class UserRolesController : ControllerBase
     {
         private readonly IUserRolesService _userRolesService;
-        private readonly ILogger<UserRolesController> _logger;
+        private readonly IAuthorizationService _authorizationService;
 
         /// <summary>
         /// Initializes a new instance of the UserRolesController class
         /// </summary>
         /// <param name="userRolesService">The user roles service dependency</param>
-        /// <param name="logger">The logger dependency</param>
-        public UserRolesController(IUserRolesService userRolesService, ILogger<UserRolesController> logger)
+        /// <param name="authorizationService">The authorization service dependency</param>
+        public UserRolesController(IUserRolesService userRolesService,IAuthorizationService authorizationService)
         {
             _userRolesService = userRolesService ?? throw new ArgumentNullException(nameof(userRolesService));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _authorizationService = authorizationService ?? throw new ArgumentNullException(nameof(authorizationService));
         }
 
         /// <summary>
@@ -37,6 +39,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="201">Role assigned successfully</response>
         /// <response code="400">Invalid request data</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpPost("assign")]
         [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
@@ -58,6 +61,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">User role found and returned</response>
         /// <response code="404">User role not found</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpGet("{userRoleId:guid}", Name = "GetUserRoleById")]
         [ProducesResponseType(typeof(UserRoleResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
@@ -79,12 +83,19 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">User roles retrieved successfully</response>
         /// <response code="404">No user roles found</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin,User")]
         [HttpGet("by-user/{userId:guid}")]
         [ProducesResponseType(typeof(List<UserRoleResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<UserRoleResponseDto>>> GetByUserId(Guid userId)
         {
+            var authorizationResult = await _authorizationService.AuthorizeAsync(User, userId, "OwnerOrAdmin");
+            if (!authorizationResult.Succeeded)
+            {
+                return Forbid();
+            }
+
             var result = await _userRolesService.GetByUserIdAsync(userId);
             if (result.IsSuccess)
                 return Ok(result.Value);
@@ -100,6 +111,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">User roles retrieved successfully</response>
         /// <response code="404">No user roles found</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpGet("by-role/{roleId:guid}")]
         [ProducesResponseType(typeof(List<UserRoleResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
@@ -120,6 +132,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">User roles retrieved successfully</response>
         /// <response code="404">No user roles found</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [ProducesResponseType(typeof(List<UserRoleResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
@@ -141,6 +154,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">Check performed successfully</response>
         /// <response code="400">Invalid request data</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpPost("exists")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
@@ -162,6 +176,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">User role deleted successfully</response>
         /// <response code="404">User role not found</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{userRoleId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
@@ -183,6 +198,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">User role deleted successfully</response>
         /// <response code="400">Invalid request data</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpDelete("by-user-and-role")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
@@ -204,6 +220,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">User roles deleted successfully</response>
         /// <response code="404">No user roles found</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpDelete("by-user/{userId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]

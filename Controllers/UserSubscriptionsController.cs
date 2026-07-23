@@ -13,20 +13,22 @@ namespace TailorSoftAPI.Controllers
     [ApiController]
     [Route("api/user-subscriptions")]
     [Produces("application/json")]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(typeof(Guid), StatusCodes.Status403Forbidden)]
     public class UserSubscriptionsController : ControllerBase
     {
-        private readonly IUserSubscriptionService _service;
-        private readonly ILogger<UserSubscriptionsController> _logger;
+        private readonly IUserSubscriptionService _userSubscriptionService;
+        private readonly IAuthorizationService _authorizationService;
 
         /// <summary>
         /// Initializes a new instance of the UserSubscriptionsController class
         /// </summary>
         /// <param name="service">The user subscription service dependency</param>
-        /// <param name="logger">The logger dependency</param>
-        public UserSubscriptionsController(IUserSubscriptionService service, ILogger<UserSubscriptionsController> logger)
+        /// <param name="authorizationService">The authorization service dependency</param>
+        public UserSubscriptionsController(IUserSubscriptionService userSubscriptionService, IAuthorizationService authorizationService)
         {
-            _service = service ?? throw new ArgumentNullException(nameof(service));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _userSubscriptionService = userSubscriptionService ?? throw new ArgumentNullException(nameof(userSubscriptionService    ));
+            _authorizationService = authorizationService ?? throw new ArgumentNullException(nameof(authorizationService));
         }
 
         /// <summary>
@@ -37,13 +39,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="201">Subscription created successfully</response>
         /// <response code="400">Invalid request data</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateUserSubscriptionDto dto)
         {
-            var result = await _service.CreateAsync(dto);
+            var result = await _userSubscriptionService.CreateAsync(dto);
             if (result.IsSuccess)
                 return CreatedAtAction(nameof(GetById), new { subscriptionId = result.Value }, new { SubscriptionId = result.Value });
             else
@@ -58,15 +61,21 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">Subscription found and returned</response>
         /// <response code="404">Subscription not found</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin,User")]
         [HttpGet("{subscriptionId:guid}", Name = "GetUserSubscriptionById")]
         [ProducesResponseType(typeof(UserSubscriptionResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<UserSubscriptionResponseDto>> GetById(Guid subscriptionId)
         {
-            var result = await _service.GetByIdAsync(subscriptionId);
+            var result = await _userSubscriptionService.GetByIdAsync(subscriptionId);
             if (result.IsSuccess)
-                return Ok(result.Value);
+            {
+                var authorizationResult = await _authorizationService.AuthorizeAsync(User, result?.Value?.UserId, "OwnerOrAdmin");
+                if (!authorizationResult.Succeeded)
+                    return Forbid();
+                return Ok(result?.Value);
+            }
             else
                 return Problem(detail: result.Error, statusCode: StatusCodes.Status404NotFound);
         }
@@ -79,13 +88,18 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">Subscriptions found and returned</response>
         /// <response code="404">No subscriptions found for the user</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin,User")]
         [HttpGet("by-user/{userId:guid}")]
         [ProducesResponseType(typeof(List<UserSubscriptionResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<UserSubscriptionResponseDto>>> GetByUserId(Guid userId)
         {
-            var result = await _service.GetByUserIdAsync(userId);
+            var authorizationResult = await _authorizationService.AuthorizeAsync(User, userId, "OwnerOrAdmin");
+            if (!authorizationResult.Succeeded)
+                return Forbid();
+
+            var result = await _userSubscriptionService.GetByUserIdAsync(userId);
             if (result.IsSuccess)
                 return Ok(result.Value);
             else
@@ -101,13 +115,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">Subscriptions found and returned</response>
         /// <response code="404">No subscriptions found for the plan</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpGet("by-plan/{planId:guid}")]
         [ProducesResponseType(typeof(List<UserSubscriptionResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<UserSubscriptionResponseDto>>> GetByPlanId(Guid planId, [FromQuery] string? status)
         {
-            var result = await _service.GetByPlanIdAsync(planId, status);
+            var result = await _userSubscriptionService.GetByPlanIdAsync(planId, status);
             if (result.IsSuccess)
                 return Ok(result.Value);
             else
@@ -122,13 +137,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">Subscriptions retrieved successfully</response>
         /// <response code="404">No subscriptions found</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [ProducesResponseType(typeof(List<UserSubscriptionResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<UserSubscriptionResponseDto>>> GetAll([FromQuery] string? status)
         {
-            var result = await _service.GetAllAsync(status);
+            var result = await _userSubscriptionService.GetAllAsync(status);
             if (result.IsSuccess)
                 return Ok(result.Value);
             else
@@ -144,13 +160,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Subscription updated successfully</response>
         /// <response code="400">Invalid request data</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpPut("{subscriptionId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Update(Guid subscriptionId, [FromBody] UpdateUserSubscriptionDto dto)
         {
-            var result = await _service.UpdateAsync(subscriptionId, dto);
+            var result = await _userSubscriptionService.UpdateAsync(subscriptionId, dto);
             if (result.IsSuccess)
                 return NoContent();
             else
@@ -165,20 +182,21 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Subscription deleted successfully</response>
         /// <response code="404">Subscription not found</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{subscriptionId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Delete(Guid subscriptionId)
         {
-            var result = await _service.DeleteAsync(subscriptionId);
+            var result = await _userSubscriptionService.DeleteAsync(subscriptionId);
             if (result.IsSuccess)
                 return NoContent();
             else
                 return Problem(detail: result.Error, statusCode: StatusCodes.Status404NotFound);
         }
 
-        
+
 
         /// <summary>
         /// Activates a subscription (moves Trial / Expired / PastDue → Active)
@@ -189,13 +207,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Subscription activated successfully</response>
         /// <response code="400">Subscription is not eligible for activation</response>
         /// <response code="500">Internal server error</response>
-        [HttpPut("{subscriptionId:guid}/activate")]
+        [Authorize(Roles = "Admin")]
+        [HttpPut("activate/{subscriptionId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Activate(Guid subscriptionId, [FromBody] ActivateUserSubscriptionDto dto)
         {
-            var result = await _service.ActivateAsync(subscriptionId, dto);
+            var result = await _userSubscriptionService.ActivateAsync(subscriptionId, dto);
             if (result.IsSuccess)
                 return NoContent();
             else
@@ -210,13 +229,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Subscription cancelled successfully</response>
         /// <response code="400">Subscription is already cancelled</response>
         /// <response code="500">Internal server error</response>
-        [HttpPut("{subscriptionId:guid}/cancel")]
+        [Authorize(Roles = "Admin")]
+        [HttpPut("cancel/{subscriptionId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Cancel(Guid subscriptionId)
         {
-            var result = await _service.CancelAsync(subscriptionId);
+            var result = await _userSubscriptionService.CancelAsync(subscriptionId);
             if (result.IsSuccess)
                 return NoContent();
             else
@@ -232,13 +252,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Plan changed successfully</response>
         /// <response code="400">Invalid request or subscription is cancelled</response>
         /// <response code="500">Internal server error</response>
-        [HttpPut("{subscriptionId:guid}/change-plan")]
+        [Authorize(Roles = "Admin")]
+        [HttpPut("change-plan/{subscriptionId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> ChangePlan(Guid subscriptionId, [FromBody] ChangePlanDto dto)
         {
-            var result = await _service.ChangePlanAsync(subscriptionId, dto);
+            var result = await _userSubscriptionService.ChangePlanAsync(subscriptionId, dto);
             if (result.IsSuccess)
                 return NoContent();
             else
@@ -254,13 +275,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Subscription renewed successfully</response>
         /// <response code="400">Invalid request data</response>
         /// <response code="500">Internal server error</response>
-        [HttpPut("{subscriptionId:guid}/renew")]
+        [Authorize(Roles = "Admin")]
+        [HttpPut("renew/{subscriptionId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Renew(Guid subscriptionId, [FromBody] RenewUserSubscriptionDto dto)
         {
-            var result = await _service.RenewAsync(subscriptionId, dto);
+            var result = await _userSubscriptionService.RenewAsync(subscriptionId, dto);
             if (result.IsSuccess)
                 return NoContent();
             else
@@ -276,13 +298,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">AutoRenew toggled successfully</response>
         /// <response code="400">Subscription is cancelled</response>
         /// <response code="500">Internal server error</response>
-        [HttpPatch("{subscriptionId:guid}/auto-renew")]
+        [Authorize(Roles = "Admin")]
+        [HttpPatch("auto-renew/{subscriptionId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> ToggleAutoRenew(Guid subscriptionId, [FromBody] ToggleAutoRenewDto dto)
         {
-            var result = await _service.ToggleAutoRenewAsync(subscriptionId, dto);
+            var result = await _userSubscriptionService.ToggleAutoRenewAsync(subscriptionId, dto);
             if (result.IsSuccess)
                 return NoContent();
             else
@@ -297,13 +320,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Subscription marked as expired</response>
         /// <response code="400">Subscription is not eligible to be marked expired</response>
         /// <response code="500">Internal server error</response>
-        [HttpPut("{subscriptionId:guid}/mark-expired")]
+        [Authorize(Roles = "Admin")]
+        [HttpPut("mark-expired/{subscriptionId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> MarkExpired(Guid subscriptionId)
         {
-            var result = await _service.MarkExpiredAsync(subscriptionId);
+            var result = await _userSubscriptionService.MarkExpiredAsync(subscriptionId);
             if (result.IsSuccess)
                 return NoContent();
             else
@@ -318,13 +342,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="204">Subscription marked as past due</response>
         /// <response code="400">Subscription must be in Active status</response>
         /// <response code="500">Internal server error</response>
-        [HttpPut("{subscriptionId:guid}/mark-past-due")]
+        [Authorize(Roles = "Admin")]
+        [HttpPut("mark-past-due/{subscriptionId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> MarkPastDue(Guid subscriptionId)
         {
-            var result = await _service.MarkPastDueAsync(subscriptionId);
+            var result = await _userSubscriptionService.MarkPastDueAsync(subscriptionId);
             if (result.IsSuccess)
                 return NoContent();
             else
@@ -340,13 +365,18 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">Check completed</response>
         /// <response code="400">Invalid user ID</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin,User")]
         [HttpGet("is-active/{userId:guid}")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<bool>> IsActive(Guid userId)
         {
-            var result = await _service.IsActiveAsync(userId);
+            var authorizationResult = await _authorizationService.AuthorizeAsync(User, userId, "OwnerOrAdmin");
+            if (!authorizationResult.Succeeded)
+                return Forbid();
+
+            var result = await _userSubscriptionService.IsActiveAsync(userId);
             if (result.IsSuccess)
                 return Ok(result.Value);
             else
@@ -361,13 +391,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">Due-billing list returned</response>
         /// <response code="404">No subscriptions due for billing</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpGet("due-billing")]
         [ProducesResponseType(typeof(List<DueBillingResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<DueBillingResponseDto>>> GetDueBilling([FromQuery] DateTime? asOfDate)
         {
-            var result = await _service.GetDueBillingAsync(asOfDate);
+            var result = await _userSubscriptionService.GetDueBillingAsync(asOfDate);
             if (result.IsSuccess)
                 return Ok(result.Value);
             else
@@ -382,13 +413,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">Expired list returned</response>
         /// <response code="404">No expired subscriptions found</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpGet("expired")]
         [ProducesResponseType(typeof(List<ExpiredSubscriptionResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<ExpiredSubscriptionResponseDto>>> GetExpired([FromQuery] DateTime? asOfDate)
         {
-            var result = await _service.GetExpiredAsync(asOfDate);
+            var result = await _userSubscriptionService.GetExpiredAsync(asOfDate);
             if (result.IsSuccess)
                 return Ok(result.Value);
             else
@@ -403,13 +435,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">Expired trials returned</response>
         /// <response code="404">No expired trials found</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpGet("expired-trials")]
         [ProducesResponseType(typeof(List<ExpiredTrialResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<ExpiredTrialResponseDto>>> GetExpiredTrials([FromQuery] DateTime? asOfDate)
         {
-            var result = await _service.GetExpiredTrialsAsync(asOfDate);
+            var result = await _userSubscriptionService.GetExpiredTrialsAsync(asOfDate);
             if (result.IsSuccess)
                 return Ok(result.Value);
             else
@@ -423,13 +456,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">Stats returned successfully</response>
         /// <response code="404">No subscription data available</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpGet("stats")]
         [ProducesResponseType(typeof(List<SubscriptionStatResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<SubscriptionStatResponseDto>>> GetStats()
         {
-            var result = await _service.GetStatsAsync();
+            var result = await _userSubscriptionService.GetStatsAsync();
             if (result.IsSuccess)
                 return Ok(result.Value);
             else
@@ -444,13 +478,14 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">Upcoming billings returned</response>
         /// <response code="404">No upcoming billings found</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpGet("upcoming-billings")]
         [ProducesResponseType(typeof(List<UpcomingBillingResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<UpcomingBillingResponseDto>>> GetUpcomingBillings([FromQuery] int daysAhead = 7)
         {
-            var result = await _service.GetUpcomingBillingsAsync(daysAhead);
+            var result = await _userSubscriptionService.GetUpcomingBillingsAsync(daysAhead);
             if (result.IsSuccess)
                 return Ok(result.Value);
             else

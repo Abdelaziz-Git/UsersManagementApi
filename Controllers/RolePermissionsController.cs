@@ -9,10 +9,12 @@ namespace TailorSoftAPI.Controllers
     /// <summary>
     /// API Controller for managing role permissions
     /// </summary>
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("api/role-permissions")]
     [Produces("application/json")]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(typeof(Guid), StatusCodes.Status403Forbidden)]
     public class RolePermissionsController : ControllerBase
     {
         private readonly IRolePermissionsService _rolePermissionsService;

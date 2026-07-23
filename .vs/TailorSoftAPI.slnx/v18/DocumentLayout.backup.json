@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\ABDELAZIZ\\source\\repos\\TailorSoftAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1E3B7127-97B7-A80D-6586-0E16DA55CE28}|TailorSoftAPI.csproj|c:\\users\\abdelaziz\\source\\repos\\tailorsoftapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E3B7127-97B7-A80D-6586-0E16DA55CE28}|TailorSoftAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1E3B7127-97B7-A80D-6586-0E16DA55CE28}|TailorSoftAPI.csproj|c:\\users\\abdelaziz\\source\\repos\\tailorsoftapi\\controllers\\usersubscriptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E3B7127-97B7-A80D-6586-0E16DA55CE28}|TailorSoftAPI.csproj|solutionrelative:controllers\\usersubscriptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +14,21 @@
       "DocumentGroups": [
         {
           "DockedHeight": 344,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserSubscriptionsController.cs",
+              "DocumentMoniker": "C:\\Users\\ABDELAZIZ\\source\\repos\\TailorSoftAPI\\Controllers\\UserSubscriptionsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserSubscriptionsController.cs",
+              "ToolTip": "C:\\Users\\ABDELAZIZ\\source\\repos\\TailorSoftAPI\\Controllers\\UserSubscriptionsController.cs",
+              "RelativeToolTip": "Controllers\\UserSubscriptionsController.cs",
+              "ViewState": "AgIAAMEBAAAAAAAAAAAmwOABAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T12:31:53.514Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -35,19 +48,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ABDELAZIZ\\source\\repos\\TailorSoftAPI\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\ABDELAZIZ\\source\\repos\\TailorSoftAPI\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-17T15:55:25.481Z",
-              "EditorCaption": ""
             }
           ]
         },

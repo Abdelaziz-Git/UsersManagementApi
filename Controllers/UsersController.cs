@@ -13,28 +13,25 @@ namespace TailorSoftAPI.Controllers
     [ApiController]
     [Route("api/Users")]
     [Produces("application/json")]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(typeof(Guid), StatusCodes.Status403Forbidden)]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IAuthorizationService _authorizationService;
 
         /// <summary>
         /// Initializes a new instance of the UsersController class
         /// </summary>
         /// <param name="userService">The user service dependency</param>
         /// <param name="logger">The logger dependency</param>
-        public UsersController(IUserService userService, ILogger<UsersController> logger)
+        public UsersController(IUserService userService, IAuthorizationService authorizationService)
         {
             _userService = userService ?? throw new ArgumentNullException(nameof(userService));
+            _authorizationService = authorizationService ?? throw new ArgumentNullException(nameof(authorizationService));
         }
 
-        /// <summary>
-        /// Creates a new user
-        /// </summary>
-        /// <param name="dto">The user data to create</param>
-        /// <returns>The ID of the created user</returns>
-        /// <response code="201">User created successfully</response>
-        /// <response code="400">Invalid request data</response>
-        /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
@@ -57,12 +54,17 @@ namespace TailorSoftAPI.Controllers
         /// <response code="400">Invalid user ID</response>
         /// <response code="404">User not found</response>
         /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin,User")]
         [HttpGet("{id:guid}", Name = "GetUserById")]
         [ProducesResponseType(typeof(UserResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<UserResponseDto>> GetById(Guid id)
         {
+            var authorizationResult = await _authorizationService.AuthorizeAsync(User, id, "OwnerOrAdmin");
+            if (!authorizationResult.Succeeded)
+                return Forbid();
+
             // Call service to retrieve user
             var result = await _userService.GetByIdAsync(id);
             if (result.IsSuccess)
@@ -71,14 +73,8 @@ namespace TailorSoftAPI.Controllers
                 return Problem(detail: result.Error, statusCode: StatusCodes.Status404NotFound);
         }
 
-        /// <summary>
-        /// Retrieves a user by its email
-        /// </summary>
-        /// <param name="email">The user email</param>
-        /// <returns>The user information</returns>
-        /// <response code="200">User found and returned</response>
-        /// <response code="404">User not found</response>
-        /// <response code="500">Internal server error</response>
+        
+        [Authorize(Roles = "Admin,User")]
         [HttpGet("by-email/{email:length(5,255)}")]
         [ProducesResponseType(typeof(UserResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
@@ -86,21 +82,26 @@ namespace TailorSoftAPI.Controllers
         public async Task<ActionResult<UserResponseDto>> GetByEmail(string email)
         {
             var result = await _userService.GetByEmailAsync(email);
-            if (result.IsSuccess)
-                return Ok(result.Value);
+            if (result is not null && result.IsSuccess)
+            {
+                // Check if the user is authorized to access this resource
+                var userId = result?.Value?.UserId;
+                var authorizationResult = await _authorizationService.AuthorizeAsync(User, userId, "OwnerOrAdmin");
+                if (!authorizationResult.Succeeded)
+                    return Forbid();
+
+                // Return the user information if authorized
+                return Ok(result?.Value);
+            }
             else
-                return Problem(detail: result.Error, statusCode: StatusCodes.Status404NotFound);
+            {
+                return Problem(detail: result?.Error, statusCode: StatusCodes.Status404NotFound);
+            }
         }
 
-        /// <summary>
-        /// Retrieves all users with pagination
-        /// </summary>
-        /// <param name="dto">The pagination request data</param>
-        /// <returns>List of users</returns>
-        /// <response code="200">Users retrieved successfully</response>
-        /// <response code="404">No users found</response>
-        /// <response code="500">Internal server error</response>
-        [HttpGet("all")]
+        
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
         [ProducesResponseType(typeof(List<UserResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -113,21 +114,18 @@ namespace TailorSoftAPI.Controllers
                 return Problem(detail: result.Error, statusCode: StatusCodes.Status404NotFound);
         }
 
-        /// <summary>
-        /// Updates a user
-        /// </summary>
-        /// <param name="userId">The user ID</param>
-        /// <param name="dto">The user data to update</param>
-        /// <returns>No content if successful</returns>
-        /// <response code="204">User updated successfully</response>
-        /// <response code="400">Invalid request data</response>
-        /// <response code="500">Internal server error</response>
+        
+        [Authorize(Roles = "Admin,User")]
         [HttpPut("{userId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ErrorMessageResponseDto), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ErrorMessageResponseDto), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Update(Guid userId, [FromBody] UpdateUserDto dto)
+        public async Task<ActionResult> Update(Guid userId,[FromBody] UpdateUserDto dto)
         {
+            var authorizationResult = await _authorizationService.AuthorizeAsync(User, userId, "OwnerOrAdmin");
+            if (!authorizationResult.Succeeded)
+                return Forbid();
+
             var result = await _userService.UpdateAsync(userId, dto);
             if (result.IsSuccess)
                 return NoContent();
@@ -135,36 +133,24 @@ namespace TailorSoftAPI.Controllers
                 return Problem(detail: result.Error, statusCode: StatusCodes.Status400BadRequest);
         }
 
-        /// <summary>
-        /// Updates the last login timestamp for a user
-        /// </summary>
-        /// <param name="userId">The user ID</param>
-        /// <returns>No content if successful</returns>
-        /// <response code="204">Last login updated successfully</response>
-        /// <response code="400">Invalid user ID</response>
-        /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin,User")]
         [HttpPut("last-login/{userId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ErrorMessageResponseDto), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ErrorMessageResponseDto), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateLastLogin(Guid userId)
         {
-           var result = await _userService.UpdateLastLoginAsync(userId);
+            var authorizationResult = await _authorizationService.AuthorizeAsync(User, userId, "OwnerOrAdmin");
+            if (!authorizationResult.Succeeded)
+                return Forbid();
+            var result = await _userService.UpdateLastLoginAsync(userId);
             if (result.IsSuccess)
                 return NoContent();
             else
                 return Problem(detail: result.Error, statusCode: StatusCodes.Status400BadRequest);
         }
 
-        /// <summary>
-        /// Deletes a user
-        /// </summary>
-        /// <param name="userId">The user ID</param>
-        /// <returns>No content if successful</returns>
-        /// <response code="204">User deleted successfully</response>
-        /// <response code="400">Invalid user ID</response>
-        /// <response code="404">User not found</response>
-        /// <response code="500">Internal server error</response>
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{userId:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ErrorMessageResponseDto), StatusCodes.Status400BadRequest)]
@@ -177,6 +163,7 @@ namespace TailorSoftAPI.Controllers
             else
                 return Problem(detail: result.Error, statusCode: StatusCodes.Status400BadRequest);
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet("exists/{email:length(5,255)}")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TailorSoftAPI.DTOs.Authentication;
 using TailorSoftAPI.DTOs.Common;
 using TailorSoftAPI.Interfaces.Services;
@@ -8,6 +9,7 @@ namespace TailorSoftAPI.Controllers
     /// <summary>
     /// API Controller for managing authentication
     /// </summary>
+    [Authorize]
     [ApiController]
     [Route("api/Auth")]
     [Produces("application/json")]
@@ -33,6 +35,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="400">Invalid request data</response>
         /// <response code="401">Invalid credentials</response>
         /// <response code="500">Internal server error</response>
+        [AllowAnonymous]
         [HttpPost("login")]
         [ProducesResponseType(typeof(ResultDto<LoginResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
@@ -56,6 +59,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="400">Invalid request data</response>
         /// <response code="401">Invalid or expired refresh token</response>
         /// <response code="500">Internal server error</response>
+        [AllowAnonymous]
         [HttpPost("refresh")]
         [ProducesResponseType(typeof(ResultDto<RefreshResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]

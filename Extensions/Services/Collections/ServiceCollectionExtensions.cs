@@ -7,6 +7,7 @@ namespace TailorSoftAPI.Extensions.Services.Collections
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
         {
             services
+               .AddApplicationJwtTokenGeneration(configuration)
                .AddApplicationRepositories()
                .AddApplicationServices()
                .AddApplicationDatabase()
@@ -15,6 +16,7 @@ namespace TailorSoftAPI.Extensions.Services.Collections
                .AddApplicationExceptionHandling()
                .AddApplicationCorsPolicies(configuration)
                .AddApplicationAuthentication(configuration)
+               .AddApplicationAuthorization()
                .AddApplicationOpenApi()
                .AddControllers();
             return services;

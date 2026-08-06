@@ -3,7 +3,7 @@
     public class CreateUserSessionDto
     {
         public Guid UserId { get; set; }
-        public string RefreshToken { get; set; } = string.Empty;
+        public string RefreshTokenHash { get; set; } = string.Empty;
         public DateTime ExpiryDate { get; set; }
     }
     /// <summary>
@@ -14,7 +14,7 @@
     {
         public Guid SessionId { get; set; }
         public Guid UserId { get; set; }
-        public string RefreshToken { get; set; } = string.Empty;
+        public string RefreshTokenHash { get; set; } = string.Empty;
         public DateTime CreatedDate { get; set; }
         public DateTime ExpiryDate { get; set; }
         public bool IsRevoked { get; set; }
@@ -22,8 +22,8 @@
     }
     public class RotateTokenRequestDto
     {
-        public string OldRefreshToken { get; set; } = string.Empty;
-        public string NewRefreshToken { get; set; } = string.Empty;
+        public string OldRefreshTokenHash { get; set; } = string.Empty;
+        public string NewRefreshTokenHash { get; set; } = string.Empty;
         public DateTime NewExpiryDate { get; set; }
     }
     public class RotateTokenResultDto
@@ -40,7 +40,7 @@
     /// <summary>Slim request DTO for token-scoped operations (validate, revoke-by-token, lookup).</summary>
     public class RefreshTokenRequestDto
     {
-        public string RefreshToken { get; set; } = string.Empty;
+        public string RefreshTokenHash { get; set; } = string.Empty;
     }
     /// <summary>Slim projection DTO for the aggregate stats query.</summary>
     public class SessionStatsDto

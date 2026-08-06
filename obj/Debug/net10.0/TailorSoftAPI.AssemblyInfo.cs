@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TailorSoftAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a21177287003e8b94428148ee4c6e878e1638a43")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b065a5f32854fd8effea1aacdf60adde093dacd")]
 [assembly: System.Reflection.AssemblyProductAttribute("TailorSoftAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TailorSoftAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

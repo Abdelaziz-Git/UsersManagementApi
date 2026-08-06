@@ -1,4 +1,4 @@
-﻿// Repositories/UserSessionsRepository.cs
+﻿
 using Dapper;
 using System.Data;
 using TailorSoftAPI.Data;
@@ -24,7 +24,7 @@ namespace TailorSoftAPI.Repositories
             var parameters = new DynamicParameters();
             parameters.Add(name: "@SessionId", dbType: DbType.Guid, direction: ParameterDirection.Output);
             parameters.Add("@UserId", dto.UserId);
-            parameters.Add("@RefreshToken", dto.RefreshToken);
+            parameters.Add("@RefreshTokenHash", dto.RefreshTokenHash);
             parameters.Add("@ExpiryDate", dto.ExpiryDate);
 
             await connection.ExecuteAsync("SP_UserSessions_Create", parameters, commandType: CommandType.StoredProcedure);
@@ -42,13 +42,13 @@ namespace TailorSoftAPI.Repositories
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<UserSession?> GetByRefreshTokenAsync(string refreshToken)
+        public async Task<UserSession?> GetByRefreshTokenHashAsync(string refreshTokenHash)
         {
             using var connection = _context.CreateConnection();
 
             return await connection.QueryFirstOrDefaultAsync<UserSession>(
-                "SP_UserSessions_GetByRefreshToken",
-                new { RefreshToken = refreshToken },
+                "SP_UserSessions_GetByRefreshTokenHash",
+                new { RefreshTokenHash = refreshTokenHash },
                 commandType: CommandType.StoredProcedure);
         }
 
@@ -102,15 +102,15 @@ namespace TailorSoftAPI.Repositories
             return parameters.Get<bool>("@IsRevoked");
         }
 
-        public async Task<bool> RevokeByRefreshTokenAsync(string refreshToken)
+        public async Task<bool> RevokeByRefreshTokenHashAsync(string refreshTokenHash)
         {
             using var connection = _context.CreateConnection();
 
             var parameters = new DynamicParameters();
             parameters.Add(name: "@IsRevoked", dbType: DbType.Boolean, direction: ParameterDirection.Output);
-            parameters.Add("@RefreshToken", refreshToken);
+            parameters.Add("@RefreshTokenHash", refreshTokenHash);
 
-            await connection.ExecuteAsync("SP_UserSessions_RevokeByRefreshToken", parameters, commandType: CommandType.StoredProcedure);
+            await connection.ExecuteAsync("SP_UserSessions_RevokeByRefreshTokenHash", parameters, commandType: CommandType.StoredProcedure);
 
             return parameters.Get<bool>("@IsRevoked");
         }
@@ -147,8 +147,8 @@ namespace TailorSoftAPI.Repositories
             using var connection = _context.CreateConnection();
 
             var parameters = new DynamicParameters();
-            parameters.Add("@OldRefreshToken", dto.OldRefreshToken);
-            parameters.Add("@NewRefreshToken", dto.NewRefreshToken);
+            parameters.Add("@OldRefreshTokenHash", dto.OldRefreshTokenHash);
+            parameters.Add("@NewRefreshTokenHash", dto.NewRefreshTokenHash);
             parameters.Add("@NewExpiryDate", dto.NewExpiryDate);
             parameters.Add(name: "@UserId", dbType: DbType.Guid, direction: ParameterDirection.Output);
             parameters.Add(name: "@IsRotated", dbType: DbType.Boolean, direction: ParameterDirection.Output);
@@ -164,13 +164,13 @@ namespace TailorSoftAPI.Repositories
             };
         }
 
-        public async Task<bool> IsValidAsync(string refreshToken)
+        public async Task<bool> IsValidAsync(string refreshTokenHash)
         {
             using var connection = _context.CreateConnection();
 
             var parameters = new DynamicParameters();
             parameters.Add(name: "@IsValid", dbType: DbType.Boolean, direction: ParameterDirection.Output);
-            parameters.Add("@RefreshToken", refreshToken);
+            parameters.Add("@RefreshTokenHash", refreshTokenHash);
 
             await connection.ExecuteAsync("SP_UserSessions_IsValid", parameters, commandType: CommandType.StoredProcedure);
 

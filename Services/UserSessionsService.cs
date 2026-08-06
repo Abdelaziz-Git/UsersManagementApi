@@ -24,8 +24,8 @@ namespace TailorSoftAPI.Services
             if (dto.UserId == Guid.Empty)
                 return ResultDto<Guid>.Failure("User ID is required");
 
-            if (string.IsNullOrWhiteSpace(dto.RefreshToken))
-                return ResultDto<Guid>.Failure("Refresh token is required");
+            if (string.IsNullOrWhiteSpace(dto.RefreshTokenHash))
+                return ResultDto<Guid>.Failure("Refresh token hash is required");
 
             if (dto.ExpiryDate <= DateTime.UtcNow)
                 return ResultDto<Guid>.Failure("Expiry date must be in the future");
@@ -49,14 +49,14 @@ namespace TailorSoftAPI.Services
             return ResultDto<UserSessionResponseDto>.Success(MapToResponseDto(session));
         }
 
-        public async Task<ResultDto<UserSessionResponseDto>> GetByRefreshTokenAsync(string refreshToken)
+        public async Task<ResultDto<UserSessionResponseDto>> GetByRefreshTokenHashAsync(string refreshTokenHash)
         {
-            if (string.IsNullOrWhiteSpace(refreshToken))
-                return ResultDto<UserSessionResponseDto>.Failure("Refresh token cannot be empty");
+            if (string.IsNullOrWhiteSpace(refreshTokenHash))
+                return ResultDto<UserSessionResponseDto>.Failure("Refresh token hash cannot be empty");
 
-            var session = await _repository.GetByRefreshTokenAsync(refreshToken);
+            var session = await _repository.GetByRefreshTokenHashAsync(refreshTokenHash);
             if (session is null)
-                return ResultDto<UserSessionResponseDto>.Failure("No active session found for the provided refresh token");
+                return ResultDto<UserSessionResponseDto>.Failure("No active session found for the provided refresh token hash");
 
             return ResultDto<UserSessionResponseDto>.Success(MapToResponseDto(session));
         }
@@ -110,12 +110,12 @@ namespace TailorSoftAPI.Services
                 return ResultDto<bool>.Failure("Session not found or already revoked");
         }
 
-        public async Task<ResultDto<bool>> RevokeByRefreshTokenAsync(string refreshToken)
+        public async Task<ResultDto<bool>> RevokeByRefreshTokenHashAsync(string refreshTokenHash)
         {
-            if (string.IsNullOrWhiteSpace(refreshToken))
-                return ResultDto<bool>.Failure("Refresh token cannot be empty");
+            if (string.IsNullOrWhiteSpace(refreshTokenHash))
+                return ResultDto<bool>.Failure("Refresh token hash cannot be empty");
 
-            var result = await _repository.RevokeByRefreshTokenAsync(refreshToken);
+            var result = await _repository.RevokeByRefreshTokenHashAsync(refreshTokenHash);
             if (result)
                 return ResultDto<bool>.Success(result);
             else
@@ -148,11 +148,11 @@ namespace TailorSoftAPI.Services
             if (dto is null)
                 return ResultDto<RotateTokenResultDto>.Failure("Rotate token DTO cannot be null");
 
-            if (string.IsNullOrWhiteSpace(dto.OldRefreshToken))
-                return ResultDto<RotateTokenResultDto>.Failure("Old refresh token is required");
+            if (string.IsNullOrWhiteSpace(dto.OldRefreshTokenHash))
+                return ResultDto<RotateTokenResultDto>.Failure("Old refresh token hash is required");
 
-            if (string.IsNullOrWhiteSpace(dto.NewRefreshToken))
-                return ResultDto<RotateTokenResultDto>.Failure("New refresh token is required");
+            if (string.IsNullOrWhiteSpace(dto.NewRefreshTokenHash))
+                return ResultDto<RotateTokenResultDto>.Failure("New refresh token hash is required");
 
             if (dto.NewExpiryDate <= DateTime.UtcNow)
                 return ResultDto<RotateTokenResultDto>.Failure("New expiry date must be in the future");
@@ -169,12 +169,12 @@ namespace TailorSoftAPI.Services
             return ResultDto<RotateTokenResultDto>.Success(result);
         }
 
-        public async Task<ResultDto<bool>> IsValidAsync(string refreshToken)
+        public async Task<ResultDto<bool>> IsValidAsync(string refreshTokenHash)
         {
-            if (string.IsNullOrWhiteSpace(refreshToken))
-                return ResultDto<bool>.Failure("Refresh token cannot be empty");
+            if (string.IsNullOrWhiteSpace(refreshTokenHash))
+                return ResultDto<bool>.Failure("Refresh token hash cannot be empty");
 
-            var isValid = await _repository.IsValidAsync(refreshToken);
+            var isValid = await _repository.IsValidAsync(refreshTokenHash);
 
             // Resolves successfully either way — validity is the answer, not an error state.
             return ResultDto<bool>.Success(isValid);
@@ -209,7 +209,7 @@ namespace TailorSoftAPI.Services
             {
                 SessionId = session.SessionId,
                 UserId = session.UserId,
-                RefreshToken = session.RefreshToken,
+                RefreshTokenHash = session.RefreshTokenHash,
                 CreatedDate = session.CreatedDate,
                 ExpiryDate = session.ExpiryDate,
                 IsRevoked = session.IsRevoked,

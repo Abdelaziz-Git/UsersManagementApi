@@ -130,7 +130,7 @@ namespace TailorSoftAPI.Services
             var createSessionDto = new CreateUserSessionDto
             {
                 UserId = user.UserId,
-                RefreshToken = refreshToken,
+                RefreshTokenHash = BCrypt.Net.BCrypt.HashPassword(refreshToken),
                 ExpiryDate = expiryDate
             };
 
@@ -138,6 +138,9 @@ namespace TailorSoftAPI.Services
 
             if (!sessionResult.IsSuccess)
                 return ResultDto<LoginResponseDto>.Failure("Invalid login request");
+
+            // Revoke any previous sessions for the user
+            var revokeResult = await _userSessionsService.RevokeAllExceptCurrentAsync(user.UserId, sessionResult.Value);
 
             // Update last login
             var updateLastLoginResult = await _userService.UpdateLastLoginAsync(user.UserId);
@@ -177,7 +180,7 @@ namespace TailorSoftAPI.Services
             // Get user by email
             var userResult = await _userService.GetByEmailAsync(refreshDTO.Email);
 
-            if (!userResult.IsSuccess)
+            if (!userResult.IsSuccess || userResult.Value is null)
             {
                 _logger.LogWarning("User not found for email {Email} in refresh request", refreshDTO.Email);
                 return ResultDto<RefreshResponseDto>.Failure("Invalid refresh request");
@@ -185,30 +188,21 @@ namespace TailorSoftAPI.Services
 
             var user = userResult.Value;
 
-            // Validate refresh token
-            var isRefreshTokenValidResult = await _userSessionsService.IsValidAsync(refreshDTO.RefreshToken);
-
-            if (!isRefreshTokenValidResult.IsSuccess || !isRefreshTokenValidResult.Value)
-            {
-                _logger.LogWarning("Invalid or expired refresh token for user {UserId}", user.UserId);
-                return ResultDto<RefreshResponseDto>.Failure("Invalid refresh request");
-            }
-
-            // Get session by refresh token to verify it belongs to the user
-            var userSessionResult = await _userSessionsService.GetByRefreshTokenAsync(refreshDTO.RefreshToken);
-
+            // Get active user sessions for the user
+            var userSessionResult = await _userSessionsService.GetByUserIdAsync(user.UserId, activeOnly: true);
             if (!userSessionResult.IsSuccess || userSessionResult.Value is null)
             {
-                _logger.LogWarning("Session not found for refresh token {RefreshToken}", refreshDTO.RefreshToken);
                 return ResultDto<RefreshResponseDto>.Failure("Invalid refresh request");
             }
 
-            var userSession = userSessionResult.Value;
+            // Find the session that matches the provided refresh token and is not revoked
+            var userSession = userSessionResult.Value.Find(session =>
+            BCrypt.Net.BCrypt.Verify(refreshDTO.RefreshToken, session.RefreshTokenHash) && !session.IsRevoked && session.RevokedDate is null);
 
             // Verify session belongs to the user
-            if (userSession.UserId != user.UserId)
+            if (userSession == null || userSession.UserId.ToString() != user.UserId.ToString())
             {
-                _logger.LogWarning("Refresh token does not belong to the user {UserId}", user.UserId);
+                _logger.LogWarning("Refresh token does not belong to the user {UserId} or is invalid", user.UserId);
                 return ResultDto<RefreshResponseDto>.Failure("Invalid refresh request");
             }
 
@@ -226,8 +220,8 @@ namespace TailorSoftAPI.Services
             // Rotate tokens in session
             var rotateDto = new RotateTokenRequestDto
             {
-                OldRefreshToken = refreshDTO.RefreshToken,
-                NewRefreshToken = newRefreshToken,
+                OldRefreshTokenHash = userSession.RefreshTokenHash,
+                NewRefreshTokenHash = BCrypt.Net.BCrypt.HashPassword(newRefreshToken),
                 NewExpiryDate = newExpiryDate
             };
 
@@ -283,19 +277,37 @@ namespace TailorSoftAPI.Services
             // Get user by email
             var userResult = await _userService.GetByEmailAsync(logoutDTO.Email);
 
-            if (!userResult.IsSuccess)
+            if (!userResult.IsSuccess || userResult.Value is null)
             {
                 _logger.LogWarning("User not found for email {Email} in logout request", logoutDTO.Email);
                 return ResultDto<bool>.Failure("Invalid logout request");
             }
+            var user = userResult.Value;
 
-            // Revoke session by refresh token
-            var revokeResult = await _userSessionsService.RevokeByRefreshTokenAsync(logoutDTO.RefreshToken);
+            // Get active user sessions for the user
+            var userSessionResult = await _userSessionsService.GetByUserIdAsync(user.UserId, activeOnly: true);
+            if (!userSessionResult.IsSuccess || userSessionResult.Value is null)
+            {
+                _logger.LogWarning("User session not found for user {UserId} in logout request", user.UserId);
+                return ResultDto<bool>.Failure("Invalid logout request");
+            }
+
+            // Find the session that matches the provided refresh token and is not revoked
+            var userSession = userSessionResult.Value.Find(session =>
+            BCrypt.Net.BCrypt.Verify(logoutDTO.RefreshToken, session.RefreshTokenHash) && !session.IsRevoked && session.RevokedDate is null);
+            if (userSession is null)
+            {
+                _logger.LogWarning("User session not found for user {UserId} with provided refresh token", user.UserId);
+                return ResultDto<bool>.Failure("Invalid logout request");
+            }
+
+            // Revoke the session
+            var revokeResult = await _userSessionsService.RevokeByIdAsync(userSession.SessionId);
 
             if (!revokeResult.IsSuccess || !revokeResult.Value)
             {
-                _logger.LogWarning("Failed to revoke session for user {UserId} with refresh token {RefreshToken}",
-                    userResult?.Value?.UserId, logoutDTO.RefreshToken);
+                _logger.LogWarning("Failed to revoke session for user {UserId} with refresh token hash {RefreshTokenHash}",
+                    user.UserId, userSession.RefreshTokenHash);
                 return ResultDto<bool>.Failure("Failed to logout");
             }
 

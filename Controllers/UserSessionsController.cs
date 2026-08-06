@@ -53,12 +53,12 @@ namespace TailorSoftAPI.Controllers
         }
 
         /// <summary>Looks up the active session behind a presented refresh token</summary>
-        [HttpGet("by-refresh-token/{refreshToken:minlength(32)}")]
+        [HttpGet("by-refreshTokenHash/{refreshTokenHash:minlength(32)}")]
         [ProducesResponseType(typeof(UserSessionResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<UserSessionResponseDto>> GetByRefreshToken(string refreshToken)
+        public async Task<ActionResult<UserSessionResponseDto>> GetByRefreshTokenHash(string refreshTokenHash)
         {
-            var result = await _sessionsService.GetByRefreshTokenAsync(refreshToken);
+            var result = await _sessionsService.GetByRefreshTokenHashAsync(refreshTokenHash);
             if (result.IsSuccess)
                 return Ok(result.Value);
             else
@@ -118,12 +118,12 @@ namespace TailorSoftAPI.Controllers
         }
 
         /// <summary>Revokes the session tied to a specific refresh token (explicit client logout)</summary>
-        [HttpPut("revoke-by-refreshToken/{refreshToken:minlength(32)}")]
+        [HttpPut("revoke-by-refreshTokenHash/{refreshTokenHash:minlength(32)}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> RevokeByRefreshToken(string refreshToken)
+        public async Task<ActionResult> RevokeByRefreshTokenHash(string refreshTokenHash)
         {
-            var result = await _sessionsService.RevokeByRefreshTokenAsync(refreshToken);
+            var result = await _sessionsService.RevokeByRefreshTokenHashAsync(refreshTokenHash);
             if (result.IsSuccess)
                 return NoContent();
             else
@@ -170,12 +170,12 @@ namespace TailorSoftAPI.Controllers
         }
 
         /// <summary>Lightweight check: is this refresh token still usable right now?</summary>
-        [HttpGet("validate/{refreshToken:minlength(32)}")]
+        [HttpGet("validate/{refreshTokenHash:minlength(32)}")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<bool>> IsValid(string refreshToken)
+        public async Task<ActionResult<bool>> IsValid(string refreshTokenHash)
         {
-            var result = await _sessionsService.IsValidAsync(refreshToken);
+            var result = await _sessionsService.IsValidAsync(refreshTokenHash);
             if (result.IsSuccess)
                 return Ok(result.Value);
             else

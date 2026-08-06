@@ -1969,14 +1969,14 @@
   },
   {
     "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
-    "Method": "GetByRefreshToken",
-    "RelativePath": "api/user-sessions/by-refresh-token/{refreshToken}",
+    "Method": "GetByRefreshTokenHash",
+    "RelativePath": "api/user-sessions/by-refreshTokenHash/{refreshTokenHash}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "refreshToken",
+        "Name": "refreshTokenHash",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -2096,14 +2096,14 @@
   },
   {
     "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
-    "Method": "RevokeByRefreshToken",
-    "RelativePath": "api/user-sessions/revoke-by-refreshToken/{refreshToken}",
+    "Method": "RevokeByRefreshTokenHash",
+    "RelativePath": "api/user-sessions/revoke-by-refreshTokenHash/{refreshTokenHash}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "refreshToken",
+        "Name": "refreshTokenHash",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -2355,13 +2355,13 @@
   {
     "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
     "Method": "IsValid",
-    "RelativePath": "api/user-sessions/validate/{refreshToken}",
+    "RelativePath": "api/user-sessions/validate/{refreshTokenHash}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "refreshToken",
+        "Name": "refreshTokenHash",
         "Type": "System.String",
         "IsRequired": true
       }

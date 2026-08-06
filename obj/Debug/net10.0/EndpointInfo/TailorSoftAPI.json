@@ -4084,14 +4084,14 @@
         ]
       }
     },
-    "/api/user-sessions/by-refresh-token/{refreshToken}": {
+    "/api/user-sessions/by-refreshTokenHash/{refreshTokenHash}": {
       "get": {
         "tags": [
           "UserSessions"
         ],
         "parameters": [
           {
-            "name": "refreshToken",
+            "name": "refreshTokenHash",
             "in": "path",
             "required": true,
             "schema": {
@@ -4289,14 +4289,14 @@
         ]
       }
     },
-    "/api/user-sessions/revoke-by-refreshToken/{refreshToken}": {
+    "/api/user-sessions/revoke-by-refreshTokenHash/{refreshTokenHash}": {
       "put": {
         "tags": [
           "UserSessions"
         ],
         "parameters": [
           {
-            "name": "refreshToken",
+            "name": "refreshTokenHash",
             "in": "path",
             "required": true,
             "schema": {
@@ -4591,14 +4591,14 @@
         ]
       }
     },
-    "/api/user-sessions/validate/{refreshToken}": {
+    "/api/user-sessions/validate/{refreshTokenHash}": {
       "get": {
         "tags": [
           "UserSessions"
         ],
         "parameters": [
           {
-            "name": "refreshToken",
+            "name": "refreshTokenHash",
             "in": "path",
             "required": true,
             "schema": {
@@ -6640,7 +6640,7 @@
             "type": "string",
             "format": "uuid"
           },
-          "refreshToken": {
+          "refreshTokenHash": {
             "type": "string"
           },
           "expiryDate": {
@@ -7116,10 +7116,10 @@
       "RotateTokenRequestDto": {
         "type": "object",
         "properties": {
-          "oldRefreshToken": {
+          "oldRefreshTokenHash": {
             "type": "string"
           },
-          "newRefreshToken": {
+          "newRefreshTokenHash": {
             "type": "string"
           },
           "newExpiryDate": {
@@ -7599,7 +7599,7 @@
             "type": "string",
             "format": "uuid"
           },
-          "refreshToken": {
+          "refreshTokenHash": {
             "type": "string"
           },
           "createdDate": {

@@ -14,5 +14,6 @@ namespace TailorSoftAPI.Interfaces.Repositories
         Task<bool> UpdateLastLogin(Guid userId);
         Task<bool> DeleteAsync(Guid userId);
         Task<bool> ExistsByEmailAsync(string email);
+        Task<UserDetails?> GetUserDetailsByEmailAsync(string email);
     }
 }

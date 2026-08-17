@@ -13,5 +13,6 @@ namespace TailorSoftAPI.Interfaces.Services
         Task<ResultDto<bool>> UpdateLastLoginAsync(Guid userId);
         Task<ResultDto<bool>> DeleteAsync(Guid userId);
         Task<ResultDto<bool>> ExistsByEmailAsync(string email);
+        Task<ResultDto<UserDetailsResponseDto>> GetUserDetailsByEmailAsync(string email);
     }
 }

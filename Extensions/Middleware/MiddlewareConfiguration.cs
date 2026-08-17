@@ -12,6 +12,7 @@
             app.UseHttpsRedirection();
             app.UseCors("AllowSpecificOrigins");
             app.UseExceptionHandler();
+            app.UseRateLimiter();
             app.UseAuthentication();
             app.UseAuthorization();
 

@@ -14,6 +14,7 @@ namespace TailorSoftAPI.Extensions.Services.Collections
                .AddApplicationLogging()
                .AddApplicationProblemDetails()
                .AddApplicationExceptionHandling()
+               .AddApplicationRateLimiting()
                .AddApplicationCorsPolicies(configuration)
                .AddApplicationAuthentication(configuration)
                .AddApplicationAuthorization()

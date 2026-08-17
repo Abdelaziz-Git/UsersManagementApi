@@ -143,6 +143,17 @@ namespace TailorSoftAPI.Services
             var exists = await _repository.ExistsByEmailAsync(email);
             return ResultDto<bool>.Success(exists);
         }
+        public async Task<ResultDto<UserDetailsResponseDto>> GetUserDetailsByEmailAsync(string email)
+        {
+            var emailValidation = ValidateEmail(email);
+            if (!emailValidation.IsValid)
+                return ResultDto<UserDetailsResponseDto>.Failure(emailValidation.Error ?? string.Empty);
+            var userDetails = await _repository.GetUserDetailsByEmailAsync(email);
+            if (userDetails == null)
+                return ResultDto<UserDetailsResponseDto>.Failure("User details with Email:" + email + " not found");
+
+            return ResultDto<UserDetailsResponseDto>.Success(MapToUserDetailsResponseDto(userDetails));
+        }
 
         #region Mapping Methods
 
@@ -160,7 +171,25 @@ namespace TailorSoftAPI.Services
                 UpdatedDate = user.UpdatedDate
             };
         }
+        private UserDetailsResponseDto MapToUserDetailsResponseDto(UserDetails userDetails)
+        {
+           return new UserDetailsResponseDto
+           {
+               // Basic user information
+               UserId = userDetails.UserId,
+               Email = userDetails.Email,
+               IsActive = userDetails.IsActive,
 
+               // User credentials and security details
+               PasswordHash = userDetails.PasswordHash,
+               IsAccountLocked = userDetails.IsAccountLocked,
+
+               // Subscription and Plan Details
+               
+               HasActiveSubscription = userDetails.HasActiveSubscription,
+               Roles= userDetails.Roles
+           };
+        }
         #endregion
 
         #region Validation Methods

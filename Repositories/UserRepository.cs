@@ -121,5 +121,20 @@ namespace TailorSoftAPI.Repositories
             connection.Execute("SP_Users_ExistsByEmail", parameters, commandType: CommandType.StoredProcedure);
             return parameters.Get<bool>("@IsExists");
         }
+        public async Task<UserDetails?> GetUserDetailsByEmailAsync(string email)
+        {
+            using var connection = _context.CreateConnection();
+            using var multi = await connection.QueryMultipleAsync(
+                "SP_Users_GetDetailsByEmail",
+                new { Email = email },
+                commandType: CommandType.StoredProcedure);
+
+            var userDetails = await multi.ReadFirstOrDefaultAsync<UserDetails>();
+            if (userDetails != null)
+            {
+                userDetails.Roles = (await multi.ReadAsync<string>()).ToList();
+            }
+            return userDetails;
+        }
     }
 }

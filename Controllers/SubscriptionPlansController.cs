@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using TailorSoftAPI.DTOs.Common;
 using TailorSoftAPI.DTOs.SubscriptionPlans;
 using TailorSoftAPI.Interfaces.Services;
@@ -102,6 +103,7 @@ namespace TailorSoftAPI.Controllers
         /// <response code="200">Subscription plans retrieved successfully</response>
         /// <response code="404">No subscription plans found</response>
         /// <response code="500">Internal server error</response>
+        [EnableRateLimiting("public-endpoints")]
         [AllowAnonymous]
         [HttpGet]
         [ProducesResponseType(typeof(List<SubscriptionPlanResponseDto>), StatusCodes.Status200OK)]

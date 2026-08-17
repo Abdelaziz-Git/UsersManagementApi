@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.OpenApi;
 using Microsoft.OpenApi;
 using Microsoft.AspNetCore.Authentication;
-using TailorSoftAPI.Extensions.Services.Registrations;
 
 namespace TailorSoftAPI.Extensions.Services.Registrations
 {

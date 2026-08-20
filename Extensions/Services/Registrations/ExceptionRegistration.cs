@@ -1,4 +1,4 @@
-﻿using TailorSoftAPI.Handlers;
+﻿using UsersManagementApi.Handlers;
 
 public static class ExceptionRegistration
 {

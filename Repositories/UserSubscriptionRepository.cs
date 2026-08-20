@@ -1,11 +1,11 @@
 ﻿using Dapper;
 using System.Data;
-using TailorSoftAPI.Data;
-using TailorSoftAPI.DTOs.UserSubscriptions;
-using TailorSoftAPI.Interfaces.Repositories;
-using TailorSoftAPI.Models;
+using UsersManagementApi.Data;
+using UsersManagementApi.DTOs.UserSubscriptions;
+using UsersManagementApi.Interfaces.Repositories;
+using UsersManagementApi.Models;
 
-namespace TailorSoftAPI.Repositories
+namespace UsersManagementApi.Repositories
 {
     public class UserSubscriptionRepository : IUserSubscriptionRepository
     {

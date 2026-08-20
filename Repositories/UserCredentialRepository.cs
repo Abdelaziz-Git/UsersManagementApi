@@ -1,12 +1,12 @@
 ﻿using Dapper;
 using System.Data;
-using TailorSoftAPI.Data;
-using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.DTOs.UserCredentials;
-using TailorSoftAPI.Interfaces.Repositories;
-using TailorSoftAPI.Models;
+using UsersManagementApi.Data;
+using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.DTOs.UserCredentials;
+using UsersManagementApi.Interfaces.Repositories;
+using UsersManagementApi.Models;
 
-namespace TailorSoftAPI.Repositories
+namespace UsersManagementApi.Repositories
 {
     public class UserCredentialRepository : IUserCredentialRepository
     {

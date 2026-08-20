@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.Models
+﻿namespace UsersManagementApi.Models
 {
     public class PasswordResetToken
     {

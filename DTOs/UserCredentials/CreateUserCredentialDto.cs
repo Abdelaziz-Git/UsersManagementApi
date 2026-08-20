@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.DTOs.UserCredentials
+﻿namespace UsersManagementApi.DTOs.UserCredentials
 {
     public class CreateUserCredentialDto
     {

@@ -1,7 +1,7 @@
-﻿using TailorSoftAPI.DTOs.RolePermissions;
-using TailorSoftAPI.Models;
+﻿using UsersManagementApi.DTOs.RolePermissions;
+using UsersManagementApi.Models;
 
-namespace TailorSoftAPI.Interfaces.Repositories
+namespace UsersManagementApi.Interfaces.Repositories
 {
     public interface IRolePermissionsRepository
     {

@@ -1,6 +1,6 @@
-﻿using TailorSoftAPI.DTOs.Permissions;
-using TailorSoftAPI.Models;
-namespace TailorSoftAPI.Interfaces.Repositories
+﻿using UsersManagementApi.DTOs.Permissions;
+using UsersManagementApi.Models;
+namespace UsersManagementApi.Interfaces.Repositories
 {
     public interface IPermissionRepository
     {

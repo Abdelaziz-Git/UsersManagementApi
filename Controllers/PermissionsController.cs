@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.DTOs.Permissions;
-using TailorSoftAPI.Interfaces.Services;
+using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.DTOs.Permissions;
+using UsersManagementApi.Interfaces.Services;
 
-namespace TailorSoftAPI.Controllers
+namespace UsersManagementApi.Controllers
 {
     /// <summary>
     /// API Controller for managing permissions

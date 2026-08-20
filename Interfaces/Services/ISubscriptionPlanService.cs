@@ -1,7 +1,7 @@
-﻿using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.DTOs.SubscriptionPlans;
+﻿using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.DTOs.SubscriptionPlans;
 
-namespace TailorSoftAPI.Interfaces.Services
+namespace UsersManagementApi.Interfaces.Services
 {
     public interface ISubscriptionPlanService
     {

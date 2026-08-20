@@ -1,8 +1,8 @@
 ﻿// Interfaces/Services/IUserSessionsService.cs
-using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.DTOs.UserSessions;
+using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.DTOs.UserSessions;
 
-namespace TailorSoftAPI.Interfaces.Services
+namespace UsersManagementApi.Interfaces.Services
 {
     public interface IUserSessionsService
     {

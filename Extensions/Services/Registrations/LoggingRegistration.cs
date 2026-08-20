@@ -1,4 +1,4 @@
-﻿using TailorSoftAPI.Logging;
+﻿using UsersManagementApi.Logging;
 
 public static class LoggingRegistration
 {

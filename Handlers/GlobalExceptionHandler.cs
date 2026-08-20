@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using TailorSoftAPI.Exceptions;
+using UsersManagementApi.Exceptions;
 
-namespace TailorSoftAPI.Handlers
+namespace UsersManagementApi.Handlers
 {
     public sealed class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger,IProblemDetailsService problemDetailsService): IExceptionHandler
     {

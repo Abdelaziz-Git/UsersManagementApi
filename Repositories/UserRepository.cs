@@ -1,13 +1,13 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Data;
-using TailorSoftAPI.Data;
-using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.DTOs.Users;
-using TailorSoftAPI.Interfaces.Repositories;
-using TailorSoftAPI.Models;
+using UsersManagementApi.Data;
+using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.DTOs.Users;
+using UsersManagementApi.Interfaces.Repositories;
+using UsersManagementApi.Models;
 
-namespace TailorSoftAPI.Repositories
+namespace UsersManagementApi.Repositories
 {
     public class UserRepository : IUserRepository
     {

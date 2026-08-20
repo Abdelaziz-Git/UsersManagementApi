@@ -1,7 +1,7 @@
-﻿using TailorSoftAPI.DTOs.SubscriptionPlans;
-using TailorSoftAPI.Models;
+﻿using UsersManagementApi.DTOs.SubscriptionPlans;
+using UsersManagementApi.Models;
 
-namespace TailorSoftAPI.Interfaces.Repositories
+namespace UsersManagementApi.Interfaces.Repositories
 {
     public interface ISubscriptionPlanRepository
     {

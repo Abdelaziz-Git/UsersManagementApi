@@ -1,12 +1,12 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Data;
-using TailorSoftAPI.Data;
-using TailorSoftAPI.DTOs.Permissions;
-using TailorSoftAPI.Interfaces.Repositories;
-using TailorSoftAPI.Models;
+using UsersManagementApi.Data;
+using UsersManagementApi.DTOs.Permissions;
+using UsersManagementApi.Interfaces.Repositories;
+using UsersManagementApi.Models;
 
-namespace TailorSoftAPI.Repositories
+namespace UsersManagementApi.Repositories
 {
     public class PermissionRepository : IPermissionRepository
     {

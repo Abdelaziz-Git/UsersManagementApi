@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using TailorSoftAPI.Extensions.Services.Registrations;
+using UsersManagementApi.Extensions.Services.Registrations;
 
-namespace TailorSoftAPI.Extensions.Services.Registrations
+namespace UsersManagementApi.Extensions.Services.Registrations
 {
     public static class AuthenticationRegistration
     {

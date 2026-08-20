@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.DTOs.SubscriptionPlans
+﻿namespace UsersManagementApi.DTOs.SubscriptionPlans
 {
     public class UpdateSubscriptionPlanDto
     {

@@ -1,7 +1,7 @@
-﻿using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.DTOs.Users;
+﻿using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.DTOs.Users;
 
-namespace TailorSoftAPI.Interfaces.Services
+namespace UsersManagementApi.Interfaces.Services
 {
     public interface IUserService
     {

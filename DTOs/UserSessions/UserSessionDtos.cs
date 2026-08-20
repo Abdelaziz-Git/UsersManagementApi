@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.DTOs.UserSessions
+﻿namespace UsersManagementApi.DTOs.UserSessions
 {
     public class CreateUserSessionDto
     {

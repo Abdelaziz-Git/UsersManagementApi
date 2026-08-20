@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
-namespace TailorSoftAPI.Data
+namespace UsersManagementApi.Data
 {
     public class DapperContext
     {

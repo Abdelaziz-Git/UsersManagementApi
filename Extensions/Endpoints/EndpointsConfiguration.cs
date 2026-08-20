@@ -1,6 +1,6 @@
 ﻿using Scalar.AspNetCore;
 
-namespace TailorSoftAPI.Extensions.Endpoints
+namespace UsersManagementApi.Extensions.Endpoints
 {
     public static class EndpointsConfiguration
     {

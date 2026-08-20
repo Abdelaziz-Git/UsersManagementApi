@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace TailorSoftAPI.Exceptions
+namespace UsersManagementApi.Exceptions
 {
     public abstract class AppException(string message, HttpStatusCode statusCode = HttpStatusCode.InternalServerError)
     : Exception(message)

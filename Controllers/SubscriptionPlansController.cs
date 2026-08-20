@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
-using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.DTOs.SubscriptionPlans;
-using TailorSoftAPI.Interfaces.Services;
+using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.DTOs.SubscriptionPlans;
+using UsersManagementApi.Interfaces.Services;
 
-namespace TailorSoftAPI.Controllers
+namespace UsersManagementApi.Controllers
 {
     /// <summary>
     /// API Controller for managing subscription plans

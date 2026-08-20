@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.Interfaces.Services
+﻿namespace UsersManagementApi.Interfaces.Services
 {
     public interface ITokenGenerationService
     {

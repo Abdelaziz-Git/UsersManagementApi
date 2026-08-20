@@ -1,5 +1,5 @@
-﻿using TailorSoftAPI.Interfaces.Services;
-using TailorSoftAPI.Services;
+﻿using UsersManagementApi.Interfaces.Services;
+using UsersManagementApi.Services;
 
 public static class ServiceRegistration
 {

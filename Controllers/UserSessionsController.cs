@@ -1,10 +1,10 @@
 ﻿// Controllers/UserSessionsController.cs
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TailorSoftAPI.DTOs.UserSessions;
-using TailorSoftAPI.Interfaces.Services;
+using UsersManagementApi.DTOs.UserSessions;
+using UsersManagementApi.Interfaces.Services;
 
-namespace TailorSoftAPI.Controllers
+namespace UsersManagementApi.Controllers
 {
     /// <summary>
     /// API Controller for managing user sessions (refresh tokens)

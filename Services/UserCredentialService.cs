@@ -1,10 +1,10 @@
-﻿using TailorSoftAPI.DTOs.UserCredentials;
-using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.Interfaces.Repositories;
-using TailorSoftAPI.Interfaces.Services;
-using TailorSoftAPI.Models;
+﻿using UsersManagementApi.DTOs.UserCredentials;
+using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.Interfaces.Repositories;
+using UsersManagementApi.Interfaces.Services;
+using UsersManagementApi.Models;
 
-namespace TailorSoftAPI.Services
+namespace UsersManagementApi.Services
 {
     public class UserCredentialService : IUserCredentialService
     {

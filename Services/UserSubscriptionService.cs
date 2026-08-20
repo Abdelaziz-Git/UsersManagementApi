@@ -1,10 +1,10 @@
-﻿using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.DTOs.UserSubscriptions;
-using TailorSoftAPI.Interfaces.Repositories;
-using TailorSoftAPI.Interfaces.Services;
-using TailorSoftAPI.Models;
+﻿using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.DTOs.UserSubscriptions;
+using UsersManagementApi.Interfaces.Repositories;
+using UsersManagementApi.Interfaces.Services;
+using UsersManagementApi.Models;
 
-namespace TailorSoftAPI.Services
+namespace UsersManagementApi.Services
 {
     public class UserSubscriptionService : IUserSubscriptionService
     {

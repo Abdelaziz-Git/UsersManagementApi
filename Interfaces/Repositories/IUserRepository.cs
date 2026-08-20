@@ -1,8 +1,8 @@
-﻿using TailorSoftAPI.DTOs.Users;
-using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.Models;
+﻿using UsersManagementApi.DTOs.Users;
+using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.Models;
 
-namespace TailorSoftAPI.Interfaces.Repositories
+namespace UsersManagementApi.Interfaces.Repositories
 {
     public interface IUserRepository
     {

@@ -1,9 +1,9 @@
-﻿using TailorSoftAPI.DTOs.Authentication;
-using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.DTOs.UserSessions;
-using TailorSoftAPI.Interfaces.Services;
+﻿using UsersManagementApi.DTOs.Authentication;
+using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.DTOs.UserSessions;
+using UsersManagementApi.Interfaces.Services;
 
-namespace TailorSoftAPI.Services
+namespace UsersManagementApi.Services
 {
     public class AuthService : IAuthService
     {

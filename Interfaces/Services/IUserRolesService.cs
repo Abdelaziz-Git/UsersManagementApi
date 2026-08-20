@@ -1,7 +1,7 @@
-﻿using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.DTOs.UserRoles;
+﻿using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.DTOs.UserRoles;
 
-namespace TailorSoftAPI.Interfaces.Services
+namespace UsersManagementApi.Interfaces.Services
 {
     public interface IUserRolesService
     {

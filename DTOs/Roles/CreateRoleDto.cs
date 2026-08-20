@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.DTOs.Roles
+﻿namespace UsersManagementApi.DTOs.Roles
 {
     public class CreateRoleDto
     {

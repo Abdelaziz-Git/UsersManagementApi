@@ -1,6 +1,6 @@
-﻿using TailorSoftAPI.DTOs.Roles;
-using TailorSoftAPI.Models;
-namespace TailorSoftAPI.Interfaces.Repositories
+﻿using UsersManagementApi.DTOs.Roles;
+using UsersManagementApi.Models;
+namespace UsersManagementApi.Interfaces.Repositories
 {
     public interface IRoleRepository
     {

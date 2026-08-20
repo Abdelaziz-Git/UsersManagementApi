@@ -1,6 +1,6 @@
-﻿using TailorSoftAPI.Extensions.Services.Registrations;
+﻿using UsersManagementApi.Extensions.Services.Registrations;
 
-namespace TailorSoftAPI.Extensions.Services.Collections
+namespace UsersManagementApi.Extensions.Services.Collections
 {
     public static class ServiceCollectionExtensions
     {

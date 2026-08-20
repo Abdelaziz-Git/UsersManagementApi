@@ -3,7 +3,7 @@ using System.Threading.RateLimiting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 
-namespace TailorSoftAPI.Extensions.Services.Registrations
+namespace UsersManagementApi.Extensions.Services.Registrations
 {
     public static class RateLimitingRegistration
     {

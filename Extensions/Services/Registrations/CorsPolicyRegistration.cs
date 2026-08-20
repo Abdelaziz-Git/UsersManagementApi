@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.Extensions.Services.Registrations
+﻿namespace UsersManagementApi.Extensions.Services.Registrations
 {
     public static class CorsPolicyRegistration
     {

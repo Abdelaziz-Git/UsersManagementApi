@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.DTOs.Authentication
+﻿namespace UsersManagementApi.DTOs.Authentication
 {
     public class LogoutRequestDto
     {

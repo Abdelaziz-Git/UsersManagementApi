@@ -1,6 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 
-namespace TailorSoftAPI.DTOs.Common
+namespace UsersManagementApi.DTOs.Common
 {
     public class JwtSettingsDto
     {

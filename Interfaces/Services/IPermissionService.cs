@@ -1,7 +1,7 @@
-﻿using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.DTOs.Permissions;
+﻿using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.DTOs.Permissions;
 
-namespace TailorSoftAPI.Interfaces.Services
+namespace UsersManagementApi.Interfaces.Services
 {
     public interface IPermissionService
     {

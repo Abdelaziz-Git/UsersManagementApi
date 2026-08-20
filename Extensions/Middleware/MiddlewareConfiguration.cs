@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.Extensions.Middleware
+﻿namespace UsersManagementApi.Extensions.Middleware
 {
     public static class MiddlewareConfiguration
     {

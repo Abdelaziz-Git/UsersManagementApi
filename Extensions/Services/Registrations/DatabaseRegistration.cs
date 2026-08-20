@@ -1,4 +1,4 @@
-﻿using TailorSoftAPI.Data;
+﻿using UsersManagementApi.Data;
 
 public static class DatabaseRegistration
 {

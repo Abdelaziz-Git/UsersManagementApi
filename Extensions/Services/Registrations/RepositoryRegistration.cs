@@ -1,5 +1,5 @@
-﻿using TailorSoftAPI.Interfaces.Repositories;
-using TailorSoftAPI.Repositories;
+﻿using UsersManagementApi.Interfaces.Repositories;
+using UsersManagementApi.Repositories;
 
 public static class RepositoryRegistration
 {

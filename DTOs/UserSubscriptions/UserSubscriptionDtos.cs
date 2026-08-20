@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.DTOs.UserSubscriptions
+﻿namespace UsersManagementApi.DTOs.UserSubscriptions
 {
     /// <summary>
     /// DTO for creating a new user subscription

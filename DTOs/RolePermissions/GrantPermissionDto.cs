@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.DTOs.RolePermissions
+﻿namespace UsersManagementApi.DTOs.RolePermissions
 {
     public class GrantPermissionDto
     {

@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "TailorSoftAPI.Controllers.AuthController",
+    "ContainingType": "UsersManagementApi.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
@@ -9,13 +9,13 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.Authentication.LoginRequestDto",
+        "Type": "UsersManagementApi.DTOs.Authentication.LoginRequestDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "TailorSoftAPI.DTOs.Common.ResultDto\u00601[[TailorSoftAPI.DTOs.Authentication.LoginResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "UsersManagementApi.DTOs.Common.ResultDto\u00601[[UsersManagementApi.DTOs.Authentication.LoginResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -45,7 +45,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.AuthController",
+    "ContainingType": "UsersManagementApi.Controllers.AuthController",
     "Method": "Logout",
     "RelativePath": "api/Auth/logout",
     "HttpMethod": "POST",
@@ -54,13 +54,13 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.Authentication.LogoutRequestDto",
+        "Type": "UsersManagementApi.DTOs.Authentication.LogoutRequestDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "TailorSoftAPI.DTOs.Common.ResultDto\u00601[[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "UsersManagementApi.DTOs.Common.ResultDto\u00601[[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -90,7 +90,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.AuthController",
+    "ContainingType": "UsersManagementApi.Controllers.AuthController",
     "Method": "Refresh",
     "RelativePath": "api/Auth/refresh",
     "HttpMethod": "POST",
@@ -99,13 +99,13 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.Authentication.RefreshRequestDto",
+        "Type": "UsersManagementApi.DTOs.Authentication.RefreshRequestDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "TailorSoftAPI.DTOs.Common.ResultDto\u00601[[TailorSoftAPI.DTOs.Authentication.RefreshResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "UsersManagementApi.DTOs.Common.ResultDto\u00601[[UsersManagementApi.DTOs.Authentication.RefreshResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -135,7 +135,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.PermissionsController",
+    "ContainingType": "UsersManagementApi.Controllers.PermissionsController",
     "Method": "Create",
     "RelativePath": "api/permissions",
     "HttpMethod": "POST",
@@ -144,7 +144,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.Permissions.CreatePermissionDto",
+        "Type": "UsersManagementApi.DTOs.Permissions.CreatePermissionDto",
         "IsRequired": true
       }
     ],
@@ -187,7 +187,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.PermissionsController",
+    "ContainingType": "UsersManagementApi.Controllers.PermissionsController",
     "Method": "Delete",
     "RelativePath": "api/permissions/{permissionId}",
     "HttpMethod": "DELETE",
@@ -237,7 +237,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.PermissionsController",
+    "ContainingType": "UsersManagementApi.Controllers.PermissionsController",
     "Method": "Update",
     "RelativePath": "api/permissions/{permissionId}",
     "HttpMethod": "PUT",
@@ -251,7 +251,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.Permissions.UpdatePermissionDto",
+        "Type": "UsersManagementApi.DTOs.Permissions.UpdatePermissionDto",
         "IsRequired": true
       }
     ],
@@ -292,7 +292,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.PermissionsController",
+    "ContainingType": "UsersManagementApi.Controllers.PermissionsController",
     "Method": "GetById",
     "RelativePath": "api/permissions/{permissionId}",
     "HttpMethod": "GET",
@@ -321,7 +321,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "TailorSoftAPI.DTOs.Permissions.PermissionResponseDto",
+        "Type": "UsersManagementApi.DTOs.Permissions.PermissionResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -345,7 +345,7 @@
     "EndpointName": "GetPermissionById"
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.PermissionsController",
+    "ContainingType": "UsersManagementApi.Controllers.PermissionsController",
     "Method": "GetByModule",
     "RelativePath": "api/permissions/by-module/{module}",
     "HttpMethod": "GET",
@@ -374,7 +374,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.Permissions.PermissionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.Permissions.PermissionResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -397,7 +397,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.RolePermissionsController",
+    "ContainingType": "UsersManagementApi.Controllers.RolePermissionsController",
     "Method": "GetByPermissionId",
     "RelativePath": "api/role-permissions/by-permission/{permissionId}",
     "HttpMethod": "GET",
@@ -426,7 +426,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.RolePermissions.RolePermissionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.RolePermissions.RolePermissionResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -449,7 +449,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.RolePermissionsController",
+    "ContainingType": "UsersManagementApi.Controllers.RolePermissionsController",
     "Method": "GetByRoleId",
     "RelativePath": "api/role-permissions/by-role/{roleId}",
     "HttpMethod": "GET",
@@ -478,7 +478,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.RolePermissions.RolePermissionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.RolePermissions.RolePermissionResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -502,7 +502,7 @@
     "EndpointName": "GetByRoleId"
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.RolePermissionsController",
+    "ContainingType": "UsersManagementApi.Controllers.RolePermissionsController",
     "Method": "Grant",
     "RelativePath": "api/role-permissions/grant",
     "HttpMethod": "POST",
@@ -511,7 +511,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.RolePermissions.GrantPermissionDto",
+        "Type": "UsersManagementApi.DTOs.RolePermissions.GrantPermissionDto",
         "IsRequired": true
       }
     ],
@@ -555,7 +555,7 @@
     "EndpointName": "GrantPermission"
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.RolePermissionsController",
+    "ContainingType": "UsersManagementApi.Controllers.RolePermissionsController",
     "Method": "RevokeAll",
     "RelativePath": "api/role-permissions/revoke-all/{roleId}",
     "HttpMethod": "DELETE",
@@ -605,7 +605,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.RolePermissionsController",
+    "ContainingType": "UsersManagementApi.Controllers.RolePermissionsController",
     "Method": "Revoke",
     "RelativePath": "api/role-permissions/revoke/{roleId}/{permissionId}",
     "HttpMethod": "DELETE",
@@ -660,7 +660,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.RolesController",
+    "ContainingType": "UsersManagementApi.Controllers.RolesController",
     "Method": "Create",
     "RelativePath": "api/roles",
     "HttpMethod": "POST",
@@ -669,7 +669,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.Roles.CreateRoleDto",
+        "Type": "UsersManagementApi.DTOs.Roles.CreateRoleDto",
         "IsRequired": true
       }
     ],
@@ -712,7 +712,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.RolesController",
+    "ContainingType": "UsersManagementApi.Controllers.RolesController",
     "Method": "GetAll",
     "RelativePath": "api/roles",
     "HttpMethod": "GET",
@@ -735,7 +735,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.Roles.RoleResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.Roles.RoleResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -758,7 +758,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.RolesController",
+    "ContainingType": "UsersManagementApi.Controllers.RolesController",
     "Method": "GetById",
     "RelativePath": "api/roles/{roleId}",
     "HttpMethod": "GET",
@@ -787,7 +787,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "TailorSoftAPI.DTOs.Roles.RoleResponseDto",
+        "Type": "UsersManagementApi.DTOs.Roles.RoleResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -811,7 +811,7 @@
     "EndpointName": "GetRoleById"
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.RolesController",
+    "ContainingType": "UsersManagementApi.Controllers.RolesController",
     "Method": "Update",
     "RelativePath": "api/roles/{roleId}",
     "HttpMethod": "PUT",
@@ -825,7 +825,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.Roles.UpdateRoleDto",
+        "Type": "UsersManagementApi.DTOs.Roles.UpdateRoleDto",
         "IsRequired": true
       }
     ],
@@ -866,7 +866,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.RolesController",
+    "ContainingType": "UsersManagementApi.Controllers.RolesController",
     "Method": "Delete",
     "RelativePath": "api/roles/{roleId}",
     "HttpMethod": "DELETE",
@@ -916,7 +916,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.RolesController",
+    "ContainingType": "UsersManagementApi.Controllers.RolesController",
     "Method": "GetByName",
     "RelativePath": "api/roles/by-name/{roleName}",
     "HttpMethod": "GET",
@@ -945,7 +945,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "TailorSoftAPI.DTOs.Roles.RoleResponseDto",
+        "Type": "UsersManagementApi.DTOs.Roles.RoleResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -968,7 +968,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.SubscriptionPlansController",
+    "ContainingType": "UsersManagementApi.Controllers.SubscriptionPlansController",
     "Method": "Create",
     "RelativePath": "api/subscription-plans",
     "HttpMethod": "POST",
@@ -977,7 +977,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.SubscriptionPlans.CreateSubscriptionPlanDto",
+        "Type": "UsersManagementApi.DTOs.SubscriptionPlans.CreateSubscriptionPlanDto",
         "IsRequired": true
       }
     ],
@@ -1020,7 +1020,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.SubscriptionPlansController",
+    "ContainingType": "UsersManagementApi.Controllers.SubscriptionPlansController",
     "Method": "GetAll",
     "RelativePath": "api/subscription-plans",
     "HttpMethod": "GET",
@@ -1049,7 +1049,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.SubscriptionPlans.SubscriptionPlanResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.SubscriptionPlans.SubscriptionPlanResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -1072,7 +1072,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.SubscriptionPlansController",
+    "ContainingType": "UsersManagementApi.Controllers.SubscriptionPlansController",
     "Method": "GetById",
     "RelativePath": "api/subscription-plans/{planId}",
     "HttpMethod": "GET",
@@ -1101,7 +1101,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "TailorSoftAPI.DTOs.SubscriptionPlans.SubscriptionPlanResponseDto",
+        "Type": "UsersManagementApi.DTOs.SubscriptionPlans.SubscriptionPlanResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -1125,7 +1125,7 @@
     "EndpointName": "GetSubscriptionPlanById"
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.SubscriptionPlansController",
+    "ContainingType": "UsersManagementApi.Controllers.SubscriptionPlansController",
     "Method": "Update",
     "RelativePath": "api/subscription-plans/{planId}",
     "HttpMethod": "PUT",
@@ -1139,7 +1139,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.SubscriptionPlans.UpdateSubscriptionPlanDto",
+        "Type": "UsersManagementApi.DTOs.SubscriptionPlans.UpdateSubscriptionPlanDto",
         "IsRequired": true
       }
     ],
@@ -1180,7 +1180,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.SubscriptionPlansController",
+    "ContainingType": "UsersManagementApi.Controllers.SubscriptionPlansController",
     "Method": "Delete",
     "RelativePath": "api/subscription-plans/{planId}",
     "HttpMethod": "DELETE",
@@ -1230,7 +1230,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.SubscriptionPlansController",
+    "ContainingType": "UsersManagementApi.Controllers.SubscriptionPlansController",
     "Method": "GetByName",
     "RelativePath": "api/subscription-plans/by-name/{planName}",
     "HttpMethod": "GET",
@@ -1259,7 +1259,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "TailorSoftAPI.DTOs.SubscriptionPlans.SubscriptionPlanResponseDto",
+        "Type": "UsersManagementApi.DTOs.SubscriptionPlans.SubscriptionPlanResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -1282,7 +1282,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserRolesController",
+    "ContainingType": "UsersManagementApi.Controllers.UserRolesController",
     "Method": "GetAll",
     "RelativePath": "api/user-roles",
     "HttpMethod": "GET",
@@ -1305,7 +1305,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserRoles.UserRoleResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserRoles.UserRoleResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -1328,7 +1328,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserRolesController",
+    "ContainingType": "UsersManagementApi.Controllers.UserRolesController",
     "Method": "GetById",
     "RelativePath": "api/user-roles/{userRoleId}",
     "HttpMethod": "GET",
@@ -1357,7 +1357,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "TailorSoftAPI.DTOs.UserRoles.UserRoleResponseDto",
+        "Type": "UsersManagementApi.DTOs.UserRoles.UserRoleResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -1381,7 +1381,7 @@
     "EndpointName": "GetUserRoleById"
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserRolesController",
+    "ContainingType": "UsersManagementApi.Controllers.UserRolesController",
     "Method": "Delete",
     "RelativePath": "api/user-roles/{userRoleId}",
     "HttpMethod": "DELETE",
@@ -1431,7 +1431,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserRolesController",
+    "ContainingType": "UsersManagementApi.Controllers.UserRolesController",
     "Method": "Assign",
     "RelativePath": "api/user-roles/assign",
     "HttpMethod": "POST",
@@ -1440,7 +1440,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserRoles.AssignUserRoleDto",
+        "Type": "UsersManagementApi.DTOs.UserRoles.AssignUserRoleDto",
         "IsRequired": true
       }
     ],
@@ -1483,7 +1483,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserRolesController",
+    "ContainingType": "UsersManagementApi.Controllers.UserRolesController",
     "Method": "GetByRoleId",
     "RelativePath": "api/user-roles/by-role/{roleId}",
     "HttpMethod": "GET",
@@ -1512,7 +1512,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserRoles.UserRoleResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserRoles.UserRoleResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -1535,7 +1535,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserRolesController",
+    "ContainingType": "UsersManagementApi.Controllers.UserRolesController",
     "Method": "DeleteByUserAndRole",
     "RelativePath": "api/user-roles/by-user-and-role",
     "HttpMethod": "DELETE",
@@ -1544,7 +1544,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserRoles.DeleteUserRoleDto",
+        "Type": "UsersManagementApi.DTOs.UserRoles.DeleteUserRoleDto",
         "IsRequired": true
       }
     ],
@@ -1585,7 +1585,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserRolesController",
+    "ContainingType": "UsersManagementApi.Controllers.UserRolesController",
     "Method": "GetByUserId",
     "RelativePath": "api/user-roles/by-user/{userId}",
     "HttpMethod": "GET",
@@ -1614,7 +1614,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserRoles.UserRoleResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserRoles.UserRoleResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -1637,7 +1637,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserRolesController",
+    "ContainingType": "UsersManagementApi.Controllers.UserRolesController",
     "Method": "DeleteAllByUserId",
     "RelativePath": "api/user-roles/by-user/{userId}",
     "HttpMethod": "DELETE",
@@ -1687,7 +1687,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserRolesController",
+    "ContainingType": "UsersManagementApi.Controllers.UserRolesController",
     "Method": "Exists",
     "RelativePath": "api/user-roles/exists",
     "HttpMethod": "POST",
@@ -1696,7 +1696,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserRoles.CheckUserRoleDto",
+        "Type": "UsersManagementApi.DTOs.UserRoles.CheckUserRoleDto",
         "IsRequired": true
       }
     ],
@@ -1739,7 +1739,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "Create",
     "RelativePath": "api/user-sessions",
     "HttpMethod": "POST",
@@ -1748,7 +1748,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserSessions.CreateUserSessionDto",
+        "Type": "UsersManagementApi.DTOs.UserSessions.CreateUserSessionDto",
         "IsRequired": true
       }
     ],
@@ -1784,7 +1784,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "GetAll",
     "RelativePath": "api/user-sessions",
     "HttpMethod": "GET",
@@ -1818,7 +1818,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSessions.UserSessionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserSessions.UserSessionResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -1834,7 +1834,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "GetById",
     "RelativePath": "api/user-sessions/{sessionId}",
     "HttpMethod": "GET",
@@ -1863,7 +1863,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "TailorSoftAPI.DTOs.UserSessions.UserSessionResponseDto",
+        "Type": "UsersManagementApi.DTOs.UserSessions.UserSessionResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -1880,7 +1880,7 @@
     "EndpointName": "GetUserSessionById"
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "Delete",
     "RelativePath": "api/user-sessions/{sessionId}",
     "HttpMethod": "DELETE",
@@ -1923,7 +1923,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "GetActiveSessionCount",
     "RelativePath": "api/user-sessions/active-count-by-userId/{userId}",
     "HttpMethod": "GET",
@@ -1968,7 +1968,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "GetByRefreshTokenHash",
     "RelativePath": "api/user-sessions/by-refreshTokenHash/{refreshTokenHash}",
     "HttpMethod": "GET",
@@ -1997,7 +1997,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "TailorSoftAPI.DTOs.UserSessions.UserSessionResponseDto",
+        "Type": "UsersManagementApi.DTOs.UserSessions.UserSessionResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -2013,7 +2013,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "GetByUserId",
     "RelativePath": "api/user-sessions/by-user/{userId}",
     "HttpMethod": "GET",
@@ -2047,7 +2047,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSessions.UserSessionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserSessions.UserSessionResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -2063,7 +2063,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "CleanupExpiredTokens",
     "RelativePath": "api/user-sessions/cleanup-expired",
     "HttpMethod": "DELETE",
@@ -2095,7 +2095,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "RevokeByRefreshTokenHash",
     "RelativePath": "api/user-sessions/revoke-by-refreshTokenHash/{refreshTokenHash}",
     "HttpMethod": "PUT",
@@ -2138,7 +2138,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "RevokeByUserId",
     "RelativePath": "api/user-sessions/revoke-by-userId/{userId}",
     "HttpMethod": "PUT",
@@ -2183,7 +2183,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "RevokeAllExceptCurrent",
     "RelativePath": "api/user-sessions/revoke-except-current-by-userId/{userId}",
     "HttpMethod": "PUT",
@@ -2233,7 +2233,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "RevokeById",
     "RelativePath": "api/user-sessions/revoke/{sessionId}",
     "HttpMethod": "PUT",
@@ -2276,7 +2276,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "RotateToken",
     "RelativePath": "api/user-sessions/rotate-token",
     "HttpMethod": "PUT",
@@ -2285,7 +2285,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserSessions.RotateTokenRequestDto",
+        "Type": "UsersManagementApi.DTOs.UserSessions.RotateTokenRequestDto",
         "IsRequired": true
       }
     ],
@@ -2305,7 +2305,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "TailorSoftAPI.DTOs.UserSessions.RotateTokenResultDto",
+        "Type": "UsersManagementApi.DTOs.UserSessions.RotateTokenResultDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -2321,7 +2321,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "GetStats",
     "RelativePath": "api/user-sessions/stats",
     "HttpMethod": "GET",
@@ -2344,7 +2344,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSessions.SessionStatsDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserSessions.SessionStatsDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -2353,7 +2353,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSessionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSessionsController",
     "Method": "IsValid",
     "RelativePath": "api/user-sessions/validate/{refreshTokenHash}",
     "HttpMethod": "GET",
@@ -2398,7 +2398,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "Create",
     "RelativePath": "api/user-subscriptions",
     "HttpMethod": "POST",
@@ -2407,7 +2407,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserSubscriptions.CreateUserSubscriptionDto",
+        "Type": "UsersManagementApi.DTOs.UserSubscriptions.CreateUserSubscriptionDto",
         "IsRequired": true
       }
     ],
@@ -2450,7 +2450,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "GetAll",
     "RelativePath": "api/user-subscriptions",
     "HttpMethod": "GET",
@@ -2479,7 +2479,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.UserSubscriptionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserSubscriptions.UserSubscriptionResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -2502,7 +2502,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "GetById",
     "RelativePath": "api/user-subscriptions/{subscriptionId}",
     "HttpMethod": "GET",
@@ -2531,7 +2531,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "TailorSoftAPI.DTOs.UserSubscriptions.UserSubscriptionResponseDto",
+        "Type": "UsersManagementApi.DTOs.UserSubscriptions.UserSubscriptionResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -2555,7 +2555,7 @@
     "EndpointName": "GetUserSubscriptionById"
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "Update",
     "RelativePath": "api/user-subscriptions/{subscriptionId}",
     "HttpMethod": "PUT",
@@ -2569,7 +2569,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserSubscriptions.UpdateUserSubscriptionDto",
+        "Type": "UsersManagementApi.DTOs.UserSubscriptions.UpdateUserSubscriptionDto",
         "IsRequired": true
       }
     ],
@@ -2610,7 +2610,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "Delete",
     "RelativePath": "api/user-subscriptions/{subscriptionId}",
     "HttpMethod": "DELETE",
@@ -2660,7 +2660,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "Activate",
     "RelativePath": "api/user-subscriptions/activate/{subscriptionId}",
     "HttpMethod": "PUT",
@@ -2674,7 +2674,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserSubscriptions.ActivateUserSubscriptionDto",
+        "Type": "UsersManagementApi.DTOs.UserSubscriptions.ActivateUserSubscriptionDto",
         "IsRequired": true
       }
     ],
@@ -2715,7 +2715,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "ToggleAutoRenew",
     "RelativePath": "api/user-subscriptions/auto-renew/{subscriptionId}",
     "HttpMethod": "PATCH",
@@ -2729,7 +2729,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserSubscriptions.ToggleAutoRenewDto",
+        "Type": "UsersManagementApi.DTOs.UserSubscriptions.ToggleAutoRenewDto",
         "IsRequired": true
       }
     ],
@@ -2770,7 +2770,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "GetByPlanId",
     "RelativePath": "api/user-subscriptions/by-plan/{planId}",
     "HttpMethod": "GET",
@@ -2804,7 +2804,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.UserSubscriptionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserSubscriptions.UserSubscriptionResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -2827,7 +2827,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "GetByUserId",
     "RelativePath": "api/user-subscriptions/by-user/{userId}",
     "HttpMethod": "GET",
@@ -2856,7 +2856,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.UserSubscriptionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserSubscriptions.UserSubscriptionResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -2879,7 +2879,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "Cancel",
     "RelativePath": "api/user-subscriptions/cancel/{subscriptionId}",
     "HttpMethod": "PUT",
@@ -2929,7 +2929,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "ChangePlan",
     "RelativePath": "api/user-subscriptions/change-plan/{subscriptionId}",
     "HttpMethod": "PUT",
@@ -2943,7 +2943,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserSubscriptions.ChangePlanDto",
+        "Type": "UsersManagementApi.DTOs.UserSubscriptions.ChangePlanDto",
         "IsRequired": true
       }
     ],
@@ -2984,7 +2984,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "GetDueBilling",
     "RelativePath": "api/user-subscriptions/due-billing",
     "HttpMethod": "GET",
@@ -3013,7 +3013,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.DueBillingResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserSubscriptions.DueBillingResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -3036,7 +3036,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "GetExpired",
     "RelativePath": "api/user-subscriptions/expired",
     "HttpMethod": "GET",
@@ -3065,7 +3065,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.ExpiredSubscriptionResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserSubscriptions.ExpiredSubscriptionResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -3088,7 +3088,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "GetExpiredTrials",
     "RelativePath": "api/user-subscriptions/expired-trials",
     "HttpMethod": "GET",
@@ -3117,7 +3117,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.ExpiredTrialResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserSubscriptions.ExpiredTrialResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -3140,7 +3140,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "IsActive",
     "RelativePath": "api/user-subscriptions/is-active/{userId}",
     "HttpMethod": "GET",
@@ -3192,7 +3192,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "MarkExpired",
     "RelativePath": "api/user-subscriptions/mark-expired/{subscriptionId}",
     "HttpMethod": "PUT",
@@ -3242,7 +3242,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "MarkPastDue",
     "RelativePath": "api/user-subscriptions/mark-past-due/{subscriptionId}",
     "HttpMethod": "PUT",
@@ -3292,7 +3292,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "Renew",
     "RelativePath": "api/user-subscriptions/renew/{subscriptionId}",
     "HttpMethod": "PUT",
@@ -3306,7 +3306,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserSubscriptions.RenewUserSubscriptionDto",
+        "Type": "UsersManagementApi.DTOs.UserSubscriptions.RenewUserSubscriptionDto",
         "IsRequired": true
       }
     ],
@@ -3347,7 +3347,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "GetStats",
     "RelativePath": "api/user-subscriptions/stats",
     "HttpMethod": "GET",
@@ -3370,7 +3370,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.SubscriptionStatResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserSubscriptions.SubscriptionStatResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -3393,7 +3393,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserSubscriptionsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserSubscriptionsController",
     "Method": "GetUpcomingBillings",
     "RelativePath": "api/user-subscriptions/upcoming-billings",
     "HttpMethod": "GET",
@@ -3422,7 +3422,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.UserSubscriptions.UpcomingBillingResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.UserSubscriptions.UpcomingBillingResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -3445,7 +3445,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserCredentialsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserCredentialsController",
     "Method": "Create",
     "RelativePath": "api/UserCredentials",
     "HttpMethod": "POST",
@@ -3454,7 +3454,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserCredentials.CreateUserCredentialDto",
+        "Type": "UsersManagementApi.DTOs.UserCredentials.CreateUserCredentialDto",
         "IsRequired": true
       }
     ],
@@ -3497,7 +3497,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserCredentialsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserCredentialsController",
     "Method": "GetByUserId",
     "RelativePath": "api/UserCredentials/{userId}",
     "HttpMethod": "GET",
@@ -3526,7 +3526,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "TailorSoftAPI.DTOs.UserCredentials.UserCredentialResponseDto",
+        "Type": "UsersManagementApi.DTOs.UserCredentials.UserCredentialResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -3550,7 +3550,7 @@
     "EndpointName": "GetUserCredentialByUserId"
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserCredentialsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserCredentialsController",
     "Method": "IncrementFailedLoginAttempts",
     "RelativePath": "api/UserCredentials/increment-failed-login-attempts/{userId}",
     "HttpMethod": "PUT",
@@ -3564,7 +3564,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.Common.FailedLoginRequestDto",
+        "Type": "UsersManagementApi.DTOs.Common.FailedLoginRequestDto",
         "IsRequired": true
       }
     ],
@@ -3605,7 +3605,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserCredentialsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserCredentialsController",
     "Method": "IsAccountLocked",
     "RelativePath": "api/UserCredentials/is-account-locked/{userId}",
     "HttpMethod": "GET",
@@ -3657,7 +3657,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserCredentialsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserCredentialsController",
     "Method": "UpdatePassword",
     "RelativePath": "api/UserCredentials/password/{userId}",
     "HttpMethod": "PUT",
@@ -3671,7 +3671,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.UserCredentials.UpdateUserCredentialDto",
+        "Type": "UsersManagementApi.DTOs.UserCredentials.UpdateUserCredentialDto",
         "IsRequired": true
       }
     ],
@@ -3712,7 +3712,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UserCredentialsController",
+    "ContainingType": "UsersManagementApi.Controllers.UserCredentialsController",
     "Method": "ResetFailedLoginAttempts",
     "RelativePath": "api/UserCredentials/reset-failed-login-attempts/{userId}",
     "HttpMethod": "PUT",
@@ -3762,7 +3762,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UsersController",
+    "ContainingType": "UsersManagementApi.Controllers.UsersController",
     "Method": "Create",
     "RelativePath": "api/Users",
     "HttpMethod": "POST",
@@ -3771,7 +3771,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.Users.CreateUserDto",
+        "Type": "UsersManagementApi.DTOs.Users.CreateUserDto",
         "IsRequired": true
       }
     ],
@@ -3814,7 +3814,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UsersController",
+    "ContainingType": "UsersManagementApi.Controllers.UsersController",
     "Method": "GetAll",
     "RelativePath": "api/Users",
     "HttpMethod": "GET",
@@ -3853,7 +3853,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[TailorSoftAPI.DTOs.Users.UserResponseDto, TailorSoftAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UsersManagementApi.DTOs.Users.UserResponseDto, UsersManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
@@ -3876,7 +3876,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UsersController",
+    "ContainingType": "UsersManagementApi.Controllers.UsersController",
     "Method": "GetById",
     "RelativePath": "api/Users/{id}",
     "HttpMethod": "GET",
@@ -3905,7 +3905,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "TailorSoftAPI.DTOs.Users.UserResponseDto",
+        "Type": "UsersManagementApi.DTOs.Users.UserResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -3929,7 +3929,7 @@
     "EndpointName": "GetUserById"
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UsersController",
+    "ContainingType": "UsersManagementApi.Controllers.UsersController",
     "Method": "Update",
     "RelativePath": "api/Users/{userId}",
     "HttpMethod": "PUT",
@@ -3943,7 +3943,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TailorSoftAPI.DTOs.Users.UpdateUserDto",
+        "Type": "UsersManagementApi.DTOs.Users.UpdateUserDto",
         "IsRequired": true
       }
     ],
@@ -3968,14 +3968,14 @@
         "StatusCode": 204
       },
       {
-        "Type": "TailorSoftAPI.DTOs.Common.ErrorMessageResponseDto",
+        "Type": "UsersManagementApi.DTOs.Common.ErrorMessageResponseDto",
         "MediaTypes": [
           "application/json"
         ],
         "StatusCode": 400
       },
       {
-        "Type": "TailorSoftAPI.DTOs.Common.ErrorMessageResponseDto",
+        "Type": "UsersManagementApi.DTOs.Common.ErrorMessageResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -3984,7 +3984,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UsersController",
+    "ContainingType": "UsersManagementApi.Controllers.UsersController",
     "Method": "Delete",
     "RelativePath": "api/Users/{userId}",
     "HttpMethod": "DELETE",
@@ -4018,14 +4018,14 @@
         "StatusCode": 204
       },
       {
-        "Type": "TailorSoftAPI.DTOs.Common.ErrorMessageResponseDto",
+        "Type": "UsersManagementApi.DTOs.Common.ErrorMessageResponseDto",
         "MediaTypes": [
           "application/json"
         ],
         "StatusCode": 400
       },
       {
-        "Type": "TailorSoftAPI.DTOs.Common.ErrorMessageResponseDto",
+        "Type": "UsersManagementApi.DTOs.Common.ErrorMessageResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -4034,7 +4034,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UsersController",
+    "ContainingType": "UsersManagementApi.Controllers.UsersController",
     "Method": "GetByEmail",
     "RelativePath": "api/Users/by-email/{email}",
     "HttpMethod": "GET",
@@ -4063,7 +4063,7 @@
         "StatusCode": 403
       },
       {
-        "Type": "TailorSoftAPI.DTOs.Users.UserResponseDto",
+        "Type": "UsersManagementApi.DTOs.Users.UserResponseDto",
         "MediaTypes": [
           "application/json"
         ],
@@ -4086,7 +4086,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UsersController",
+    "ContainingType": "UsersManagementApi.Controllers.UsersController",
     "Method": "Exists",
     "RelativePath": "api/Users/exists/{email}",
     "HttpMethod": "GET",
@@ -4138,7 +4138,7 @@
     ]
   },
   {
-    "ContainingType": "TailorSoftAPI.Controllers.UsersController",
+    "ContainingType": "UsersManagementApi.Controllers.UsersController",
     "Method": "UpdateLastLogin",
     "RelativePath": "api/Users/last-login/{userId}",
     "HttpMethod": "PUT",
@@ -4172,14 +4172,14 @@
         "StatusCode": 204
       },
       {
-        "Type": "TailorSoftAPI.DTOs.Common.ErrorMessageResponseDto",
+        "Type": "UsersManagementApi.DTOs.Common.ErrorMessageResponseDto",
         "MediaTypes": [
           "application/json"
         ],
         "StatusCode": 400
       },
       {
-        "Type": "TailorSoftAPI.DTOs.Common.ErrorMessageResponseDto",
+        "Type": "UsersManagementApi.DTOs.Common.ErrorMessageResponseDto",
         "MediaTypes": [
           "application/json"
         ],

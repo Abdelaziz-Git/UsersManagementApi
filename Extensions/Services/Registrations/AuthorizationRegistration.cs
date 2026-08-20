@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 
-namespace TailorSoftAPI.Extensions.Services.Registrations
+namespace UsersManagementApi.Extensions.Services.Registrations
 {
     /// <summary>
     /// Provides extension methods for registering authorization services and policies in the application.

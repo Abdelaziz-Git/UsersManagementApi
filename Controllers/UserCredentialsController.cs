@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.DTOs.UserCredentials;
-using TailorSoftAPI.Interfaces.Services;
+using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.DTOs.UserCredentials;
+using UsersManagementApi.Interfaces.Services;
 
-namespace TailorSoftAPI.Controllers
+namespace UsersManagementApi.Controllers
 {
     /// <summary>
     /// API Controller for managing user credentials (passwords, account locks, failed login tracking).

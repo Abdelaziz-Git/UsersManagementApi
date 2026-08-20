@@ -1,8 +1,8 @@
-﻿using TailorSoftAPI.DTOs.UserCredentials;
-using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.Models;
+﻿using UsersManagementApi.DTOs.UserCredentials;
+using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.Models;
 
-namespace TailorSoftAPI.Interfaces.Repositories;
+namespace UsersManagementApi.Interfaces.Repositories;
 public interface IUserCredentialRepository
 {
     Task<Guid?> CreateAsync(CreateUserCredentialDto dto);

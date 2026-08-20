@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.DTOs.Permissions
+﻿namespace UsersManagementApi.DTOs.Permissions
 {
     public class CreatePermissionDto
     {

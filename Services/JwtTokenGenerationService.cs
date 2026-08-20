@@ -4,10 +4,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.Interfaces.Services;
+using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.Interfaces.Services;
 
-namespace TailorSoftAPI.Services
+namespace UsersManagementApi.Services
 {
     public class JwtTokenGenerationService : ITokenGenerationService
     {

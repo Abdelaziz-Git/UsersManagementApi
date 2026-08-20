@@ -1,8 +1,8 @@
 ﻿using System.Data;
 using Dapper;
-using TailorSoftAPI.Data;
+using UsersManagementApi.Data;
 
-namespace TailorSoftAPI.Logging
+namespace UsersManagementApi.Logging
 {
     public class DatabaseLogger : ILogger
     {

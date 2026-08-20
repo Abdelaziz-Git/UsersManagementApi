@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.DTOs.Users
+﻿namespace UsersManagementApi.DTOs.Users
 {
     public class UserResponseDto
     {

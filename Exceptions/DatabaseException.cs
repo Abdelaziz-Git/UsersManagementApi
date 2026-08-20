@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Net;
 
-namespace TailorSoftAPI.Exceptions
+namespace UsersManagementApi.Exceptions
 {
     /// <summary>
     /// Thrown when a database operation fails

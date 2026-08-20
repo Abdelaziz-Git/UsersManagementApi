@@ -62,10 +62,10 @@ C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\staticwebassets.
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSo.32A49D06.Up2Date
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSoftAPI.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\refint\TailorSoftAPI.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSoftAPI.pdb
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\TailorSoftAPI.genruntimeconfig.cache
 C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\ref\TailorSoftAPI.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoftAPI\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

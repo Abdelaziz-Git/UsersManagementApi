@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
-using TailorSoftAPI.DTOs.Authentication;
-using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.Interfaces.Services;
+using UsersManagementApi.DTOs.Authentication;
+using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.Interfaces.Services;
 
-namespace TailorSoftAPI.Controllers
+namespace UsersManagementApi.Controllers
 {
     /// <summary>
     /// API Controller for managing authentication

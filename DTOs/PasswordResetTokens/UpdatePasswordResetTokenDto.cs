@@ -1,4 +1,4 @@
-﻿namespace TailorSoftAPI.DTOs.PasswordResetTokens
+﻿namespace UsersManagementApi.DTOs.PasswordResetTokens
 {
     public class UpdatePasswordResetTokenDto
     {

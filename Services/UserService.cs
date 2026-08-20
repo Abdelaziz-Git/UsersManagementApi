@@ -1,11 +1,11 @@
-﻿using TailorSoftAPI.DTOs.Common;
-using TailorSoftAPI.DTOs.Users;
-using TailorSoftAPI.Interfaces.Repositories;
-using TailorSoftAPI.Interfaces.Services;
-using TailorSoftAPI.Models;
+﻿using UsersManagementApi.DTOs.Common;
+using UsersManagementApi.DTOs.Users;
+using UsersManagementApi.Interfaces.Repositories;
+using UsersManagementApi.Interfaces.Services;
+using UsersManagementApi.Models;
 using System.Net.Mail;
 
-namespace TailorSoftAPI.Services
+namespace UsersManagementApi.Services
 {
     public class UserService : IUserService
     {

@@ -1,7 +1,7 @@
-﻿using TailorSoftAPI.DTOs.UserSessions;
-using TailorSoftAPI.Models;
+﻿using UsersManagementApi.DTOs.UserSessions;
+using UsersManagementApi.Models;
 
-namespace TailorSoftAPI.Interfaces.Repositories
+namespace UsersManagementApi.Interfaces.Repositories
 {
     public interface IUserSessionsRepository
     {

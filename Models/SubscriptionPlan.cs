@@ -1,25 +1,29 @@
-﻿namespace UsersManagementApi.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace UsersManagementApi.Models;
+
+public partial class SubscriptionPlan
 {
-    public class SubscriptionPlan
-    {
-        public Guid PlanId { get; set; }
+    public Guid PlanId { get; set; }
 
-        public string PlanName { get; set; } = string.Empty;
+    public string PlanName { get; set; } = null!;
 
-        public string? Description { get; set; }
+    public string? Description { get; set; }
 
-        public decimal MonthlyPrice { get; set; }
+    public decimal MonthlyPrice { get; set; }
 
-        public decimal? AnnualPrice { get; set; }
+    public decimal? AnnualPrice { get; set; }
 
-        public long? MaxStorage { get; set; }
+    public long? MaxStorage { get; set; }
 
-        public string? Features { get; set; }
+    public string? Features { get; set; }
 
-        public int DisplayOrder { get; set; }
+    public int? DisplayOrder { get; set; }
 
-        public bool IsActive { get; set; }
+    public bool? IsActive { get; set; }
 
-        public DateTime CreatedDate { get; set; }
-    }
+    public DateTime? CreatedDate { get; set; }
+
+    public virtual ICollection<UserSubscription> UserSubscriptions { get; set; } = new List<UserSubscription>();
 }

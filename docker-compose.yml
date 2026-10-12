@@ -1,0 +1,48 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: users_management_api
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Server=sql_server,1433;Database=UsersManagementDb;User Id=sa;Password=YourSecurePassword123!;Encrypt=false;TrustServerCertificate=true;
+      - Jwt__SecretKey=${JWT_SECRET_KEY:-SUPER_SECRET_KEY_THAT_IS_AT_LEAST_32_BYTES_LONG_12345!}
+      - Jwt__Issuer=UsersManagementApi
+      - Jwt__Audience=UsersManagementApiUsers
+    depends_on:
+      sql_server:
+        condition: service_healthy
+    networks:
+      - app_network
+    restart: unless-stopped
+
+  sql_server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql_server
+    environment:
+      SA_PASSWORD: "YourSecurePassword123!"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+    networks:
+      - app_network
+    healthcheck:
+      test: /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "YourSecurePassword123!" -Q "SELECT 1" || exit 1
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+volumes:
+  sql_data:
+    driver: local
+
+networks:
+  app_network:
+    driver: bridge

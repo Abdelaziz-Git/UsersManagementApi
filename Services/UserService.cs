@@ -165,30 +165,30 @@ namespace UsersManagementApi.Services
                 FullName = $"{user.FirstName} {user.LastName}".Trim(),
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
-                IsActive = user.IsActive,
-                EmailVerified = user.EmailVerified,
-                CreatedDate = user.CreatedDate,
+                IsActive = user.IsActive??false,
+                EmailVerified = user.EmailVerified??false,
+                CreatedDate = user.CreatedDate??DateTime.MinValue,
                 UpdatedDate = user.UpdatedDate
             };
         }
         private UserDetailsResponseDto MapToUserDetailsResponseDto(UserDetails userDetails)
         {
-           return new UserDetailsResponseDto
-           {
-               // Basic user information
-               UserId = userDetails.UserId,
-               Email = userDetails.Email,
-               IsActive = userDetails.IsActive,
+            return new UserDetailsResponseDto
+            {
+                // Basic user information
+                UserId = userDetails.UserId,
+                Email = userDetails.Email,
+                IsActive = userDetails.IsActive,
 
-               // User credentials and security details
-               PasswordHash = userDetails.PasswordHash,
-               IsAccountLocked = userDetails.IsAccountLocked,
+                // User credentials and security details
+                PasswordHash = userDetails.PasswordHash,
+                IsAccountLocked = userDetails.IsAccountLocked,
 
-               // Subscription and Plan Details
-               
-               HasActiveSubscription = userDetails.HasActiveSubscription,
-               Roles= userDetails.Roles
-           };
+                // Subscription and Plan Details
+
+                HasActiveSubscription = userDetails.HasActiveSubscription,
+                Roles = userDetails.Roles.ToList()
+            };
         }
         #endregion
 

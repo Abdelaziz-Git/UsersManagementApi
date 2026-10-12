@@ -8,9 +8,9 @@ namespace UsersManagementApi.Extensions.Services.Collections
         {
             services
                .AddApplicationJwtTokenGeneration(configuration)
+               .AddApplicationDatabase(configuration)
                .AddApplicationRepositories()
                .AddApplicationServices()
-               .AddApplicationDatabase()
                .AddApplicationLogging()
                .AddApplicationProblemDetails()
                .AddApplicationExceptionHandling()

@@ -151,10 +151,10 @@ namespace UsersManagementApi.Services
                 UserRoleId = userRole.UserRoleId,
                 UserId = userRole.UserId,
                 RoleId = userRole.RoleId,
-                FullName = userRole.FullName,
-                RoleName = userRole.RoleName,
-                Email = userRole.Email,
-                Description = userRole.Description,
+                FullName = userRole.User.FirstName + " " + userRole.User.LastName,
+                RoleName = userRole.Role.RoleName,
+                Email = userRole.User.Email,
+                Description = userRole.Role.Description,
                 AssignedDate = userRole.AssignedDate
             };
         }

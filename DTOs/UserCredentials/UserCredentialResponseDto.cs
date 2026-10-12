@@ -8,13 +8,13 @@
 
         public string PasswordHash { get; set; } = string.Empty;
 
-        public DateTime LastPasswordChangeDate { get; set; }
+        public DateTime? LastPasswordChangeDate { get; set; }
 
-        public int FailedLoginAttempts { get; set; }
+        public int? FailedLoginAttempts { get; set; }
 
         public DateTime? AccountLockedUntil { get; set; }
 
-        public DateTime UpdatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
 
     }
 }

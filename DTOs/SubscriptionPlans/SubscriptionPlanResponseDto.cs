@@ -15,6 +15,6 @@
 
         public string? Features { get; set; }
 
-        public int DisplayOrder { get; set; }
+        public int? DisplayOrder { get; set; }
     }
 }

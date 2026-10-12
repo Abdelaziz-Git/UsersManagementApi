@@ -102,7 +102,8 @@ namespace UsersManagementApi.Services
                 PermissionId = permission.PermissionId,
                 PermissionName = permission.PermissionName,
                 Module = permission.Module,
-                Description = permission.Description
+                Description = permission.Description,
+                CreatedDate = permission.CreatedDate ?? DateTime.MinValue
             };
         }
 

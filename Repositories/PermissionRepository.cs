@@ -1,5 +1,5 @@
-﻿using Dapper;
-using Microsoft.Data.SqlClient;
+﻿
+using Microsoft.EntityFrameworkCore;
 using System.Data;
 using UsersManagementApi.Data;
 using UsersManagementApi.DTOs.Permissions;
@@ -10,80 +10,70 @@ namespace UsersManagementApi.Repositories
 {
     public class PermissionRepository : IPermissionRepository
     {
-        private readonly DapperContext _context;
+        private readonly Context _context;
 
-        public PermissionRepository(DapperContext context)
+        public PermissionRepository(Context efContext)
         {
-            _context = context;
+            _context = efContext;
         }
 
         public async Task<Guid?> CreateAsync(CreatePermissionDto dto)
         {
-            using var connection = _context.CreateConnection();
-
-            var parameters = new DynamicParameters();
-            parameters.Add(name: "@PermissionId", dbType: DbType.Guid, direction: ParameterDirection.Output);
-            parameters.Add("@PermissionName", dto.PermissionName);
-            parameters.Add("@Module", dto.Module);
-            parameters.Add("@Description", dto.Description);
-
-            await connection.ExecuteAsync("SP_Permissions_Create", parameters, commandType: CommandType.StoredProcedure);
-
-            return parameters.Get<Guid?>("@PermissionId");
+            var newPermission = new Permission
+            {
+                PermissionId = Guid.NewGuid(),
+                PermissionName = dto.PermissionName,
+                Module = dto.Module,
+                Description = dto.Description
+            };
+            await _context.Permissions.AddAsync(newPermission);
+            return await _context.SaveChangesAsync() == 1 ? newPermission.PermissionId : null;
         }
 
         public async Task<Permission?> GetByIdAsync(Guid id)
         {
-            using var connection = _context.CreateConnection();
-
-            return await connection.QueryFirstOrDefaultAsync<Permission?>(
-                "SP_Permissions_GetById",
-                new { PermissionId = id },
-                commandType: CommandType.StoredProcedure);
+            return await _context.Permissions
+                .AsNoTracking()
+                .Where(p => (p.PermissionId == id) && !(p.IsDeleted))
+                .FirstOrDefaultAsync();
         }
 
         public async Task<List<Permission>> GetAllAsync(string module)
         {
-            using var connection = _context.CreateConnection();
-
-            var permissions = await connection.QueryAsync<Permission>(
-                "SP_Permissions_GetAll",
-                new { Module = module },
-                commandType: CommandType.StoredProcedure);
-
-            return permissions.ToList();
+            return await _context.Permissions
+                .AsNoTracking()
+                .Where(p => p.Module == module && !p.IsDeleted)
+                .ToListAsync();
         }
 
         public async Task<bool> UpdateAsync(Guid id, UpdatePermissionDto dto)
         {
-            using var connection = _context.CreateConnection();
+            var permission = await _context.Permissions
+                .Where(p => (p.PermissionId == id) && !(p.IsDeleted))
+                .FirstOrDefaultAsync();
 
-            var parameters = new DynamicParameters();
-            parameters.Add(name: "@IsUpdated", dbType: DbType.Boolean, direction: ParameterDirection.Output);
-            parameters.Add("@PermissionId", id);
-            parameters.Add("@PermissionName", dto.PermissionName);
-            parameters.Add("@Module", dto.Module);
-            parameters.Add("@Description", dto.Description);
+            if (permission == null)
+                return false;
 
-            await connection.ExecuteAsync("SP_Permissions_Update", parameters, commandType: CommandType.StoredProcedure);
+            permission.PermissionName= dto.PermissionName;
+            permission.Module = dto.Module;
+            permission.Description = dto.Description;
 
-            return parameters.Get<bool>("@IsUpdated");
+            return await _context.SaveChangesAsync() == 1;
         }
 
         public async Task<bool> DeleteAsync(Guid id)
         {
-            using var connection = _context.CreateConnection();
+            var permission = await _context.Permissions
+                 .Where(p => (p.PermissionId == id) && !(p.IsDeleted))
+                 .FirstOrDefaultAsync();
 
-            var parameters = new DynamicParameters();
-            parameters.Add(name: "@IsDeleted", dbType: DbType.Boolean, direction: ParameterDirection.Output);
-            parameters.Add("@PermissionId", id);
+            if (permission == null)
+                return false;
 
-            await connection.ExecuteAsync(
-                "SP_Permissions_Delete",
-                parameters,
-                commandType: CommandType.StoredProcedure);
+            permission.IsDeleted = true;
 
-            return parameters.Get<bool>("@IsDeleted");
+            return await _context.SaveChangesAsync() == 1;
         }
     }
 }
